@@ -45,7 +45,7 @@
 </head>
 <body class="flex flex-col items-center min-h-screen">
 
-  <h1 class="text-3xl text-green-500 font-bold text-center mt-6">🏙️ PARK PLACE 🏙️</h1>
+  <h1 class="text-3xl text-green-500 font-bold text-center mt-6">🏙️  {{.Street}}  🏙️</h1>
   <br>
   <i class="fas fa-sign-out-alt" data-target="#modalLoginForm">x</i>
 
@@ -83,7 +83,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          <label>Latitude:</label>
+          <form method="post" action="BOOKPARKING">
+ <label>Latitude:</label>
           <input type="text" id="modal-lat" class="form-control mb-2" readonly>
           <label>Longitude:</label>
           <input type="text" id="modal-lng" class="form-control mb-2" readonly>
@@ -91,6 +92,10 @@
           <input type="text" id="modal-carreg" class="form-control mb-2">
           <label>LOCATION:</label>
           <input type="text" id="modal-location" class="form-control">
+
+          </form>
+         
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
