@@ -27,19 +27,6 @@ html, body { height: 100%; margin:0; padding:0; }
   margin: 2.5vh 2.5vw;
   border-radius: 12px;
 }
-#countdown {
-  position: fixed;
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #3b82f6;
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.75rem;
-  z-index: 10000;
-}
 </style>
 </head>
 
@@ -62,9 +49,6 @@ html, body { height: 100%; margin:0; padding:0; }
       <input type="text" id="longitude" class="form-control flex-1" placeholder="Longitude">
     </div>
   </div>
-
-  <!-- Countdown -->
-  <div id="countdown">5</div>
 </div>
 
 <script>
@@ -73,22 +57,9 @@ let userPos = null;
 let userMarker = null;
 let routeLine = null;
 let lastClicks = [];
-let markerLayers = [];
-let countdownValue = 5;
-const countdownDiv = document.getElementById("countdown");
+let markerLayers = []; // stores current markers
 
-// =======================
-// DUMMY DATA
-// =======================
-const dummyData = [
-  { lat: -0.06575, lng: 34.77502, title: "Entrance A", color: "#d32f2f", content: "🚗 Available: 5 spots\n🅿️ Near main gate" },
-  { lat: -0.06585, lng: 34.77602, title: "VIP Parking", color: "#f57c00", content: "🚗🚗 Limited spots!\n💳 Access card required" },
-  { lat: -0.06595, lng: 34.77702, title: "Security Office", color: "#388e3c", content: "🚗 = 3\n⚠️ Heavy traffic 🚦" }
-];
-
-// =======================
-// TILE LAYER
-// =======================
+// Tile Layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 // =======================
@@ -110,6 +81,7 @@ function updateUserLocation(lat, lng) {
   }
 }
 
+// Use location button
 document.getElementById("getLocationBtn").addEventListener("click", () => {
   if (!navigator.geolocation) { alert("❌ Geolocation not supported"); return; }
   navigator.geolocation.getCurrentPosition(
@@ -122,6 +94,7 @@ document.getElementById("getLocationBtn").addEventListener("click", () => {
   );
 });
 
+// Live tracking
 if (navigator.geolocation) {
   navigator.geolocation.watchPosition(
     pos => updateUserLocation(pos.coords.latitude, pos.coords.longitude),
@@ -133,11 +106,12 @@ if (navigator.geolocation) {
 // =======================
 // LOAD MARKERS
 // =======================
-function loadMarkers(data) {
+function loadMarkers(parkingData) {
+  // Remove previous markers
   markerLayers.forEach(m => map.removeLayer(m));
   markerLayers = [];
 
-  data.forEach(p => {
+  parkingData.forEach(p => {
     const marker = L.circleMarker([p.lat, p.lng], {
       radius: 10,
       fillColor: p.color,
@@ -154,23 +128,24 @@ function loadMarkers(data) {
 }
 
 // =======================
-// COUNTDOWN AND REFRESH
+// DUMMY JSON FETCH
 // =======================
-function refreshMarkers() {
+function fetchParkingData() {
+  // Dummy data (replace with your server URL later)
+  const dummyData = [
+    { lat: -0.06575, lng: 34.77502, title: "Entrance A", color: "#d32f2f", content: "🚗 Available: 5 spots\n🅿️ Near main gate" },
+    { lat: -0.06585, lng: 34.77602, title: "VIP Parking", color: "#f57c00", content: "🚗🚗 Limited spots!\n💳 Access card required" },
+    { lat: -0.06595, lng: 34.77702, title: "Security Office", color: "#388e3c", content: "🚗 = 3\n⚠️ Heavy traffic 🚦" }
+  ];
+
   loadMarkers(dummyData);
-  countdownValue = 5;
-  countdownDiv.textContent = countdownValue;
 }
 
-refreshMarkers();
-setInterval(() => {
-  countdownValue--;
-  if (countdownValue <= 0) {
-    refreshMarkers();
-  } else {
-    countdownDiv.textContent = countdownValue;
-  }
-}, 1000);
+// Initial load
+fetchParkingData();
+
+// Refresh every 5 seconds
+setInterval(fetchParkingData, 5000);
 
 // =======================
 // ROUTING (last 2 clicks)
@@ -207,10 +182,9 @@ map.on("mousemove", e => {
   $("#longitude").val(e.latlng.lng.toFixed(6));
 });
 
-// Mobile fix
+// Ensure full map render
 setTimeout(()=>map.invalidateSize(true),500);
 setTimeout(()=>map.invalidateSize(true),1500);
-
 </script>
 
 </body>
