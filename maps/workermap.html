@@ -62,24 +62,24 @@ html, body { height: 100%; margin:0; padding:0; }
 
 
 <!-- ✅ REPLACE with this toggleable version -->
-<div id="infoBox" class="fixed top-5 right-5 bg-white/95 p-4 rounded-xl shadow-2xl z-[9999] w-72 max-h-96 overflow-y-auto hidden transition-all duration-300 transform translate-x-full">
+<form id="infoBox" class="fixed top-5 right-5 bg-white/95 p-4 rounded-xl shadow-2xl z-[9999] w-72 max-h-96 overflow-y-auto hidden transition-all duration-300 transform translate-x-full" method="POST"  action="PARKINGUPDATES">
   <h4 class="font-bold text-xl mb-2 text-blue-600">📌 Map Info</h4>
   <p id="infoContent" class="text-sm text-gray-700">
     Click on the map to see coordinates here.
   </p>
   <div class="flex gap-2 mt-2">
     🌐📌 <br>
-    <input type="text" id="lattitude" class="form-control flex-1" placeholder="Latitude">
-    <input type="text" id="longitude" class="form-control flex-1" placeholder="Longitude">
+    <input type="text" id="lattitude" class="form-control flex-1" placeholder="Latitude"  required >
+    <input type="text" id="longitude" class="form-control flex-1" placeholder="Longitude" required >
   </div>
 
   <!-- Rest of your form stays EXACTLY the same -->
   <div class="flex gap-2 mt-2">
-    🚗<input type="text" id="spaces" class="form-control flex-1" placeholder="SPACES">
+    🚗<input type="text" id="spaces" class="form-control flex-1" placeholder="SPACES" required >
   </div>
 
   <div class="flex gap-2 mt-2">
-    🚦<select name="cars" class="form-select w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400">
+    🚦<select name="cars" class="form-select w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400"  required >
       <option value="">-- COLOR CODE --</option>
       <option value="🔴">🔴</option>
       <option value="🟡" selected>🟡</option>
@@ -88,14 +88,14 @@ html, body { height: 100%; margin:0; padding:0; }
   </div>
 
   <div class="flex gap-2 mt-2">
-    💬 <textarea id="notes" rows="3" class="form-control w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 resize-vertical focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400" placeholder="Enter parking spaces or notes..."></textarea>
+    💬 <textarea id="notes" rows="3" class="form-control w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 resize-vertical focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400" placeholder="Enter parking spaces or notes..."></textarea required >
   </div>
 
   <div class="flex gap-2 mt-4 pt-4 border-t border-gray-200">
     <button type="submit" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-medium py-1.5 px-3 text-sm rounded-md shadow-sm transition-all duration-200 focus:ring-2 focus:ring-green-300 focus:outline-none hover:scale-105 active:scale-95">✅ Submit</button>
     <button type="reset" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-1.5 px-3 text-sm rounded-md shadow-sm transition-all duration-200 focus:ring-2 focus:ring-gray-300 focus:outline-none hover:scale-105 active:scale-95">🔄 Reset</button>
   </div>
-</div>
+</form>
 
 
   <!-- Countdown -->

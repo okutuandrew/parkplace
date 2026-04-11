@@ -18,6 +18,7 @@ func main() {
     // Your page route
     http.HandleFunc("/F-MAP", FrontMapHandler)
 	http.HandleFunc("/W-MAP",WorkerMapHandler)
+	http.HandleFunc("/PARKINGUPDATES",ParkingUpdates)
 
     // Optional route
     http.HandleFunc("/BOOKPARKING", Bookparking)
@@ -65,4 +66,22 @@ func FrontMapHandler(w http.ResponseWriter, r *http.Request) {
 
 func Bookparking(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintf(w, "Hello, this is your Go HTTP server!")
+}
+
+func ParkingUpdates(w http.ResponseWriter, r *http.Request) {
+   
+
+	log.Println("✅ Worker Posted updates")
+
+	  data := PageData{Street: "KIMATHI STREET"}
+
+    tmpl, err := template.ParseFiles("maps/workermap.html")
+    if err != nil {
+        http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
+        return
+    }
+    err = tmpl.Execute(w, data)
+    if err != nil {
+        http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
+    }
 }
