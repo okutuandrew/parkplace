@@ -17,6 +17,7 @@ func main() {
 
     // Your page route
     http.HandleFunc("/F-MAP", FrontMapHandler)
+	http.HandleFunc("/W-MAP",WorkerMapHandler)
 
     // Optional route
     http.HandleFunc("/BOOKPARKING", Bookparking)
@@ -25,6 +26,26 @@ func main() {
     fmt.Println("   Open → http://localhost:8080/F-MAP")
     log.Fatal(http.ListenAndServe(":8080", nil))
 }
+
+
+
+func WorkerMapHandler(w http.ResponseWriter, r *http.Request) {
+    data := PageData{Street: "KIMATHI STREET"}
+
+    tmpl, err := template.ParseFiles("maps/workermap.html")
+    if err != nil {
+        http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    log.Println("✅ User accessed W-MAP page")
+    err = tmpl.Execute(w, data)
+    if err != nil {
+        http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
+    }
+}
+
+
 
 func FrontMapHandler(w http.ResponseWriter, r *http.Request) {
     data := PageData{Street: "KIMATHI STREET"}

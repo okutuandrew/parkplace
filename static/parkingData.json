@@ -2,7 +2,7 @@
   {
     "lat": -0.06575,
     "lng": 34.77502,
-    "title": "Entrance A",
+    "title": "Entrance ANDREW",
     "color": "#d32f2f",
     "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
   },
@@ -23,6 +23,13 @@
     {
     "lat": -0.06599,
     "lng": 34.77795,
+    "title": "Security Officexx",
+    "color": "#388e3c",
+    "content": "🚗 = 3\n⚠️ Heavy traffic 🚦"
+  },
+   {
+    "lat": -0.069520,
+    "lng": 34.778165,
     "title": "Security Officexx",
     "color": "#388e3c",
     "content": "🚗 = 3\n⚠️ Heavy traffic 🚦"

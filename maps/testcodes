@@ -265,9 +265,15 @@ map.on("click", e => {
   $("#longitude").val(lng.toFixed(6));
 });
 
-map.on("mousemove", e => {
-  $("#lattitude").val(e.latlng.lat.toFixed(6));
-  $("#longitude").val(e.latlng.lng.toFixed(6));
+map.on("click", e => {
+  const lat = e.latlng.lat;
+  const lng = e.latlng.lng;
+
+  // ... routing logic ...
+
+  // ✅ THIS ALREADY WORKS - loads coords on CLICK only
+  $("#lattitude").val(lat.toFixed(6));
+  $("#longitude").val(lng.toFixed(6));
 });
 
 // Mobile fix

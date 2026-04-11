@@ -51,16 +51,52 @@ html, body { height: 100%; margin:0; padding:0; }
 
   <div id="map"></div>
 
-  <div id="infoBox" class="fixed top-5 right-5 bg-white/95 p-4 rounded-xl shadow-2xl z-[9999] w-72">
-    <h4 class="font-bold text-xl mb-2 text-blue-600">📌 Map Info</h4>
-    <p id="infoContent" class="text-sm text-gray-700">
-      Click on the map to see coordinates here.
-    </p>
-    <div class="flex gap-2 mt-2">
-      <input type="text" id="lattitude" class="form-control flex-1" placeholder="Latitude">
-      <input type="text" id="longitude" class="form-control flex-1" placeholder="Longitude">
-    </div>
+
+  <!-- Floating Toggle Button -->
+<button id="toggleForm" class="fixed top-5 right-5 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-2xl z-[10001] w-14 h-14 flex items-center justify-center text-xl transition-all duration-300 hover:scale-110 active:scale-95">
+  ℹ️
+</button>
+
+<!-- Modified InfoBox (starts HIDDEN) -->
+
+
+
+<!-- ✅ REPLACE with this toggleable version -->
+<div id="infoBox" class="fixed top-5 right-5 bg-white/95 p-4 rounded-xl shadow-2xl z-[9999] w-72 max-h-96 overflow-y-auto hidden transition-all duration-300 transform translate-x-full">
+  <h4 class="font-bold text-xl mb-2 text-blue-600">📌 Map Info</h4>
+  <p id="infoContent" class="text-sm text-gray-700">
+    Click on the map to see coordinates here.
+  </p>
+  <div class="flex gap-2 mt-2">
+    🌐📌 <br>
+    <input type="text" id="lattitude" class="form-control flex-1" placeholder="Latitude">
+    <input type="text" id="longitude" class="form-control flex-1" placeholder="Longitude">
   </div>
+
+  <!-- Rest of your form stays EXACTLY the same -->
+  <div class="flex gap-2 mt-2">
+    🚗<input type="text" id="spaces" class="form-control flex-1" placeholder="SPACES">
+  </div>
+
+  <div class="flex gap-2 mt-2">
+    🚦<select name="cars" class="form-select w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400">
+      <option value="">-- COLOR CODE --</option>
+      <option value="🔴">🔴</option>
+      <option value="🟡" selected>🟡</option>
+      <option value="🟢">🟢</option>
+    </select>
+  </div>
+
+  <div class="flex gap-2 mt-2">
+    💬 <textarea id="notes" rows="3" class="form-control w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 resize-vertical focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400" placeholder="Enter parking spaces or notes..."></textarea>
+  </div>
+
+  <div class="flex gap-2 mt-4 pt-4 border-t border-gray-200">
+    <button type="submit" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-medium py-1.5 px-3 text-sm rounded-md shadow-sm transition-all duration-200 focus:ring-2 focus:ring-green-300 focus:outline-none hover:scale-105 active:scale-95">✅ Submit</button>
+    <button type="reset" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-1.5 px-3 text-sm rounded-md shadow-sm transition-all duration-200 focus:ring-2 focus:ring-gray-300 focus:outline-none hover:scale-105 active:scale-95">🔄 Reset</button>
+  </div>
+</div>
+
 
   <!-- Countdown -->
   <div id="countdown">5</div>
@@ -240,39 +276,52 @@ if (navigator.geolocation) {
 // =======================
 // CLICK & ROUTING (unchanged)
 // =======================
+
+
+// =======================
+// CLICK & ROUTING (unchanged)
+// =======================
+
 map.on("click", e => {
   const lat = e.latlng.lat;
   const lng = e.latlng.lng;
 
-  lastClicks.push([lat, lng]);
-  if (lastClicks.length > 2) lastClicks.shift();
+  // ... routing logic ...
 
-  if (lastClicks.length === 2) {
-    if (routeLine) map.removeLayer(routeLine);
-    const [start, end] = lastClicks;
-    fetch(`https://router.project-osrm.org/route/v1/walking/${start[1]},${start[0]};${end[1]},${end[0]}?geometries=geojson`)
-      .then(r => r.json())
-      .then(data => {
-        const coords = data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
-        routeLine = L.polyline(coords, { color:'blue', weight:6 }).addTo(map);
-      })
-      .catch(() => {
-        routeLine = L.polyline([start, end], { color:'green', weight:4 }).addTo(map);
-      });
-  }
-
+  // ✅ THIS ALREADY WORKS - loads coords on CLICK only
   $("#lattitude").val(lat.toFixed(6));
   $("#longitude").val(lng.toFixed(6));
-});
-
-map.on("mousemove", e => {
-  $("#lattitude").val(e.latlng.lat.toFixed(6));
-  $("#longitude").val(e.latlng.lng.toFixed(6));
 });
 
 // Mobile fix
 setTimeout(() => map.invalidateSize(true), 500);
 setTimeout(() => map.invalidateSize(true), 1500);
+
+
+
+
+///////////////TOGGLE BUTTON 
+
+// Toggle Form Button
+document.getElementById('toggleForm').addEventListener('click', function() {
+  const infoBox = document.getElementById('infoBox');
+  const toggleBtn = document.getElementById('toggleForm');
+  
+  if (infoBox.classList.contains('hidden')) {
+    // Show form
+    infoBox.classList.remove('hidden', 'translate-x-full');
+    infoBox.classList.add('translate-x-0');
+    toggleBtn.innerHTML = '❌';
+    toggleBtn.classList.add('bg-red-600', 'hover:bg-red-700');
+  } else {
+    // Hide form
+    infoBox.classList.add('translate-x-full');
+    setTimeout(() => infoBox.classList.add('hidden'), 300);
+    toggleBtn.innerHTML = 'ℹ️';
+    toggleBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
+    toggleBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+  }
+});
 
 </script>  
 
