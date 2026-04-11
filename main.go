@@ -1,49 +1,47 @@
 package main
 
 import (
-	"fmt"
-	"html/template"
-	"net/http"
-	//"log"
+    "fmt"
+    "html/template"
+    "log"
+    "net/http"
 )
 
-type data struct {
-	Street string  // exported so template can see it
+type PageData struct {
+    Street string
 }
 
 func main() {
-	var details data
+    // Static files handler - MUST come BEFORE the specific routes
+    http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
-	// Pass details (or a pointer to it) into the handler
-	// by wrapping it in a closure
-	http.HandleFunc("/F-MAP", func(w http.ResponseWriter, r *http.Request) {
-		FrontMapHandler(w, r, &details)
-	})
+    // Your page route
+    http.HandleFunc("/F-MAP", FrontMapHandler)
 
-	http.HandleFunc("/BOOKPARKING", Bookparking)
+    // Optional route
+    http.HandleFunc("/BOOKPARKING", Bookparking)
 
-	fmt.Println("Server running on http://localhost:8080")
-	http.ListenAndServe(":8080", nil)
+    fmt.Println("🚀 Server running on http://localhost:8080")
+    fmt.Println("   Open → http://localhost:8080/F-MAP")
+    log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-func FrontMapHandler(w http.ResponseWriter, r *http.Request, d *data) {
-	// d is *data, so you can modify it
-	d.Street = "KIMATHI STREET"
+func FrontMapHandler(w http.ResponseWriter, r *http.Request) {
+    data := PageData{Street: "KIMATHI STREET"}
 
-	tmpl, err := template.ParseFiles("maps/map.html")
-	if err != nil {
-		http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
-		return
-	}
+    tmpl, err := template.ParseFiles("maps/map.html")
+    if err != nil {
+        http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
+        return
+    }
 
-	err = tmpl.Execute(w, d)
-	if err != nil {
-		http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
-		return
-	}
+    log.Println("✅ User accessed F-MAP page")
+    err = tmpl.Execute(w, data)
+    if err != nil {
+        http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
+    }
 }
 
-func Bookparking(w http.ResponseWriter, r *http.Request){
-
-fmt.Fprintf(w, "Hello, this is your Go HTTP server!")
+func Bookparking(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Hello, this is your Go HTTP server!")
 }

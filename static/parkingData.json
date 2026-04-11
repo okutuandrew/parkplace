@@ -1,0 +1,32 @@
+[
+  {
+    "lat": -0.06575,
+    "lng": 34.77502,
+    "title": "Entrance A",
+    "color": "#d32f2f",
+    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
+  },
+  {
+    "lat": -0.06585,
+    "lng": 34.77602,
+    "title": "VIP Parkingxxx",
+    "color": "#f57c00",
+    "content": "🚗🚗 Limited spots!\n💳 Access card required"
+  },
+  {
+    "lat": -0.06595,
+    "lng": 34.77702,
+    "title": "Security Officexx",
+    "color": "#388e3c",
+    "content": "🚗 = 3\n⚠️ Heavy traffic 🚦"
+  },
+    {
+    "lat": -0.06599,
+    "lng": 34.77795,
+    "title": "Security Officexx",
+    "color": "#388e3c",
+    "content": "🚗 = 3\n⚠️ Heavy traffic 🚦"
+  }
+
+  
+]

@@ -42,7 +42,6 @@ html, body { height: 100%; margin:0; padding:0; }
 }
 </style>
 </head>
-
 <body class="bg-gray-100">
 
 <div class="flex flex-col items-center">
@@ -57,7 +56,7 @@ html, body { height: 100%; margin:0; padding:0; }
     <p id="infoContent" class="text-sm text-gray-700">
       Click on the map to see coordinates here.
     </p>
-    <div class="flex gap-2 mt-2 w-4/5 max-w-md">
+    <div class="flex gap-2 mt-2">
       <input type="text" id="lattitude" class="form-control flex-1" placeholder="Latitude">
       <input type="text" id="longitude" class="form-control flex-1" placeholder="Longitude">
     </div>
@@ -67,6 +66,8 @@ html, body { height: 100%; margin:0; padding:0; }
   <div id="countdown">5</div>
 </div>
 
+
+
 <script>
 let map = L.map('map').setView([-0.06575, 34.77402], 15);
 let userPos = null;
@@ -75,94 +76,118 @@ let routeLine = null;
 let lastClicks = [];
 let markerLayers = [];
 let countdownValue = 5;
+let parkingData = [];                    
 const countdownDiv = document.getElementById("countdown");
 
+let isFirstLoad = true;   // ← This controls whether to auto-fit
+
 // =======================
-// DUMMY DATA
+// LOAD DATA FROM JSON
 // =======================
-const dummyData = [
-  { lat: -0.06575, lng: 34.77502, title: "Entrance A", color: "#d32f2f", content: "🚗 Available: 5 spots\n🅿️ Near main gate" },
-  { lat: -0.06585, lng: 34.77602, title: "VIP Parking", color: "#f57c00", content: "🚗🚗 Limited spots!\n💳 Access card required" },
-  { lat: -0.06595, lng: 34.77702, title: "Security Office", color: "#388e3c", content: "🚗 = 3\n⚠️ Heavy traffic 🚦" }
-];
+async function loadParkingData() {
+  try {
+    console.log("🔄 Fetching fresh parking data...");
+
+    const response = await fetch('/static/parkingData.json?' + Date.now());
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    parkingData = await response.json();
+
+    console.log('✅ Parking data loaded successfully!', parkingData.length, 'spots');
+    console.table(parkingData);
+
+    loadMarkers(parkingData);
+    return true;
+  } catch (error) {
+    console.error('❌ Failed to load parkingData.json:', error);
+    return false;
+  }
+}
 
 // =======================
 // TILE LAYER
 // =======================
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
 
 // =======================
-// USER LOCATION
-// =======================
-function updateUserLocation(lat, lng) {
-  userPos = { lat, lng };
-  if (userMarker) {
-    userMarker.setLatLng([lat, lng]);
-  } else {
-    userMarker = L.circleMarker([lat, lng], {
-      radius: 10,
-      fillColor: "#007bff",
-      color: "#ffffff",
-      weight: 3,
-      opacity: 1,
-      fillOpacity: 1
-    }).addTo(map).bindPopup("📍 You are here").openPopup();
-  }
-}
-
-document.getElementById("getLocationBtn").addEventListener("click", () => {
-  if (!navigator.geolocation) { alert("❌ Geolocation not supported"); return; }
-  navigator.geolocation.getCurrentPosition(
-    pos => {
-      updateUserLocation(pos.coords.latitude, pos.coords.longitude);
-      map.setView([pos.coords.latitude, pos.coords.longitude], 16);
-    },
-    err => { alert("⚠️ Location failed. Turn on GPS and allow permission."); },
-    { enableHighAccuracy:true, timeout:15000, maximumAge:0 }
-  );
-});
-
-if (navigator.geolocation) {
-  navigator.geolocation.watchPosition(
-    pos => updateUserLocation(pos.coords.latitude, pos.coords.longitude),
-    err => console.log("GPS watch error:", err.message),
-    { enableHighAccuracy:true, maximumAge:5000, timeout:10000 }
-  );
-}
-
-// =======================
-// LOAD MARKERS
+// LOAD MARKERS (Only fit on first load)
 // =======================
 function loadMarkers(data) {
+  console.log("🟢 Updating markers...");
+
+  // Remove old markers only
   markerLayers.forEach(m => map.removeLayer(m));
   markerLayers = [];
 
-  data.forEach(p => {
+  if (!data || data.length === 0) return;
+
+  const bounds = L.latLngBounds();
+
+  data.forEach((p, index) => {
+    if (typeof p.lat !== 'number' || typeof p.lng !== 'number') return;
+
     const marker = L.circleMarker([p.lat, p.lng], {
-      radius: 10,
-      fillColor: p.color,
-      color: "#fff",
-      weight: 2,
-      fillOpacity: 0.9
+      radius: 12,
+      fillColor: p.color || "#3388ff",
+      color: "#ffffff",
+      weight: 3,
+      fillOpacity: 0.95
     }).addTo(map);
 
     const contentHTML = p.content ? p.content.replace(/\n/g, "<br>") : "";
-    marker.bindPopup(`<div style="text-align:center"><b style="color:${p.color}">${p.title}</b><br>${contentHTML}</div>`);
+    marker.bindPopup(`
+      <div style="text-align:center; min-width:200px;">
+        <b style="color:${p.color || '#3388ff'}; font-size:1.1em;">${p.title || 'Parking Spot'}</b><br>
+        ${contentHTML}
+      </div>
+    `);
 
     markerLayers.push(marker);
+    bounds.extend([p.lat, p.lng]);
+
+    console.log(`📍 Added marker ${index+1}: ${p.title}`);
   });
+
+  // Auto-fit ONLY on the very first load
+  if (isFirstLoad && bounds.isValid()) {
+    console.log("🔄 First load → Fitting bounds to show all markers");
+    setTimeout(() => {
+      map.fitBounds(bounds, { 
+        padding: [60, 60],
+        maxZoom: 16
+      });
+      isFirstLoad = false;   // Never auto-fit again
+    }, 150);
+  }
 }
 
 // =======================
-// COUNTDOWN AND REFRESH
+// REFRESH FUNCTION (Now preserves user view)
 // =======================
-function refreshMarkers() {
-  loadMarkers(dummyData);
+async function refreshMarkers() {
   countdownValue = 5;
-  countdownDiv.textContent = countdownValue;
+  countdownDiv.textContent = "5";
+
+  console.log("🔁 Refreshing markers (keeping current map view)...");
+  const success = await loadParkingData();
+  if (success) {
+    console.log("✅ Markers updated successfully");
+  }
 }
 
-refreshMarkers();
+// =======================
+// INITIAL LOAD
+// =======================
+loadParkingData();
+
+// =======================
+// COUNTDOWN TIMER
+// =======================
 setInterval(() => {
   countdownValue--;
   if (countdownValue <= 0) {
@@ -173,7 +198,37 @@ setInterval(() => {
 }, 1000);
 
 // =======================
-// ROUTING (last 2 clicks)
+// USER LOCATION (unchanged)
+// =======================
+function updateUserLocation(lat, lng) {
+  userPos = { lat, lng };
+  if (userMarker) userMarker.setLatLng([lat, lng]);
+  else {
+    userMarker = L.circleMarker([lat, lng], {
+      radius: 10, fillColor: "#007bff", color: "#ffffff",
+      weight: 3, opacity: 1, fillOpacity: 1
+    }).addTo(map).bindPopup("📍 You are here").openPopup();
+  }
+}
+
+document.getElementById("getLocationBtn").addEventListener("click", () => {
+  if (!navigator.geolocation) return alert("❌ Geolocation not supported");
+  navigator.geolocation.getCurrentPosition(
+    pos => updateUserLocation(pos.coords.latitude, pos.coords.longitude),
+    () => alert("⚠️ Location access denied or failed.")
+  );
+});
+
+if (navigator.geolocation) {
+  navigator.geolocation.watchPosition(
+    pos => updateUserLocation(pos.coords.latitude, pos.coords.longitude),
+    err => console.log("GPS error:", err.message),
+    { enableHighAccuracy: true, maximumAge: 5000 }
+  );
+}
+
+// =======================
+// CLICK & ROUTING (unchanged)
 // =======================
 map.on("click", e => {
   const lat = e.latlng.lat;
@@ -184,34 +239,33 @@ map.on("click", e => {
 
   if (lastClicks.length === 2) {
     if (routeLine) map.removeLayer(routeLine);
-
     const [start, end] = lastClicks;
     fetch(`https://router.project-osrm.org/route/v1/walking/${start[1]},${start[0]};${end[1]},${end[0]}?geometries=geojson`)
-    .then(r => r.json())
-    .then(data => {
-      const coords = data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
-      routeLine = L.polyline(coords, { color:'blue', weight:6 }).addTo(map);
-    })
-    .catch(() => {
-      routeLine = L.polyline([start, end], { color:'green', weight:4 }).addTo(map);
-    });
+      .then(r => r.json())
+      .then(data => {
+        const coords = data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
+        routeLine = L.polyline(coords, { color:'blue', weight:6 }).addTo(map);
+      })
+      .catch(() => {
+        routeLine = L.polyline([start, end], { color:'green', weight:4 }).addTo(map);
+      });
   }
 
   $("#lattitude").val(lat.toFixed(6));
   $("#longitude").val(lng.toFixed(6));
 });
 
-// Mouse move
 map.on("mousemove", e => {
   $("#lattitude").val(e.latlng.lat.toFixed(6));
   $("#longitude").val(e.latlng.lng.toFixed(6));
 });
 
 // Mobile fix
-setTimeout(()=>map.invalidateSize(true),500);
-setTimeout(()=>map.invalidateSize(true),1500);
+setTimeout(() => map.invalidateSize(true), 500);
+setTimeout(() => map.invalidateSize(true), 1500);
 
-</script>
+</script>  
+
 
 </body>
 </html>
