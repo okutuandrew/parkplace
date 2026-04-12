@@ -19,6 +19,8 @@ func main() {
     http.HandleFunc("/F-MAP", FrontMapHandler)
 	http.HandleFunc("/W-MAP",WorkerMapHandler)
 	http.HandleFunc("/PARKINGUPDATES",ParkingUpdates)
+	http.HandleFunc("/DRIVERLOGGIN",DriverLoggin)
+	http.HandleFunc("/WORKERLOGGIN",WorkerLoggin)
 
     // Optional route
     http.HandleFunc("/BOOKPARKING", Bookparking)
@@ -84,4 +86,40 @@ func ParkingUpdates(w http.ResponseWriter, r *http.Request) {
     if err != nil {
         http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
     }
+}
+
+
+
+func DriverLoggin(w http.ResponseWriter, r *http.Request) {
+
+	log.Println("✅ DRIVER  OPENED APP ")
+
+	tmpl, err := template.ParseFiles("forms/driverloggin.html")
+	if err != nil {
+		http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	err = tmpl.Execute(w, nil) // 👈 no data passed
+	if err != nil {
+		http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
+	}
+}
+
+
+
+func WorkerLoggin(w http.ResponseWriter, r *http.Request) {
+
+	log.Println("✅ Worker   OPENED APP ")
+
+	tmpl, err := template.ParseFiles("forms/workerloggin.html")
+	if err != nil {
+		http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	err = tmpl.Execute(w, nil) // 👈 no data passed
+	if err != nil {
+		http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
+	}
 }
