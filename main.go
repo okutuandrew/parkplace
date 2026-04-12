@@ -5,13 +5,17 @@ import (
     "html/template"
     "log"
     "net/http"
+    "parkplace/workerupdates"
 )
+
 
 type PageData struct {
     Street string
 }
 
 func main() {
+
+    log.Println(workerupdates.Workerdata())
     // Static files handler - MUST come BEFORE the specific routes
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
@@ -28,6 +32,9 @@ func main() {
     fmt.Println("🚀 Server running on http://localhost:8080")
     fmt.Println("   Open → http://localhost:8080/F-MAP")
     log.Fatal(http.ListenAndServe(":8080", nil))
+
+
+  
 }
 
 
@@ -123,3 +130,4 @@ func WorkerLoggin(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
 	}
 }
+
