@@ -3,14 +3,15 @@ package workerupdates
 import ( 
 
 	"encoding/json"
+	"os"
 )
 
 type Updates struct {
-    Lat     float64
-    Long    float64
-    Title   string
-    Color   string
-    Content string
+    Lat     float64 `json:"lat"`
+    Long    float64 `json:"lng"`
+    Title   string  `json:"title"`
+    Color   string  `json:"color"`
+    Content string  `json:"content"`
 } 
 func Workerdata()  string {
 
@@ -29,34 +30,28 @@ func Workerdata()  string {
     return  string(jsonData)
 }
 
-func ScribeUpdates(jsonstring string, Newdata *Updates){
 
-/*	Newdata.Lat = -0.06575
-	Newdata.Long = 34.77502
-	Newdata.Title =   "Entrance A"
-	Newdata.Color =  "color"
-	Newdata.Content = "🚗 Available: 5 spots\n🅿️ Near main gate"
 
-	
+func ScribeUpdates(jsonstring string, Newdata *Updates) {
 
-	log.Println( Newdata   )
+	filePath := "static/parkingData.json"
 
-	OldData,_ :=  os.ReadFile("static/parkingData.json") 
+	// 1. Read existing file
+	oldData, err := os.ReadFile(filePath)
+	if err != nil {
+		oldData = []byte("[]") // if file doesn't exist
+	}
 
-	NewdataSlice  := []Updates{ *Newdata}
-json.Unmarshal(OldData,&NewdataSlice)
-AddData,_ := json.Marshal(NewdataSlice) 
-os.WriteFile("static/parkingData.json",  AddData  , 0644)
+	// 2. Convert to slice
+	var parking []Updates
+	json.Unmarshal(oldData, &parking)
 
-// WITH this CORRECT code:
-var parkingSpots []Updates
-if err := json.Unmarshal(OldData, &parkingSpots); err != nil {
-    parkingSpots = []Updates{}
-}
-parkingSpots = append(parkingSpots, *Newdata)
-jsonBytes, _ := json.MarshalIndent(parkingSpots, "", "  ")
-//os.WriteFile("static/parkingData.json", jsonBytes, 0644)
- */
-	
+	// 3. Append new data
+	parking = append(parking, *Newdata)
 
+	// 4. Convert back to JSON
+	finalData, _ := json.MarshalIndent(parking, "", "  ")
+
+	// 5. Write full file (overwrite)
+	os.WriteFile(filePath, finalData, 0666)
 }
