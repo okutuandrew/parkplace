@@ -6,6 +6,7 @@ import (
     "log"
     "net/http"
     "parkplace/workerupdates"
+     "parkplace/logs"
 )
 
 
@@ -15,6 +16,7 @@ type PageData struct {
 
 func main() {
 
+    logs.SysLogs()
     log.Println(workerupdates.Workerdata())
     // Static files handler - MUST come BEFORE the specific routes
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
