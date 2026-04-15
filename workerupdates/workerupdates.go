@@ -4,6 +4,7 @@ import (
 
 	"encoding/json"
 	"os"
+	"sync"
 )
 
 type Updates struct {
@@ -32,7 +33,15 @@ func Workerdata()  string {
 
 
 
+var mu sync.Mutex 
+
+
 func ScribeUpdates(jsonstring string, Newdata *Updates) {
+	
+
+	mu.Lock()
+
+	defer mu.Unlock()
 
 	filePath := "static/parkingData.json"
 
