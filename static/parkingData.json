@@ -7,41 +7,6 @@
     "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
   },
   {
-    "lat": -0.06585,
-    "lng": 34.77602,
-    "title": "VIP Parkingxxx",
-    "color": "#f57c00",
-    "content": "🚗🚗 Limited spots!\n💳 Access card required"
-  },
-  {
-    "lat": -0.06595,
-    "lng": 34.77702,
-    "title": "Security Officexx",
-    "color": "#388e3c",
-    "content": "🚗 = 3\n⚠️ Heavy traffic 🚦"
-  },
-  {
-    "lat": -0.06599,
-    "lng": 34.77795,
-    "title": "Security Officexx",
-    "color": "#388e3c",
-    "content": "🚗 = 3\n⚠️ Heavy traffic 🚦"
-  },
-  {
-    "lat": -0.06952,
-    "lng": 34.778165,
-    "title": "Security Officexx",
-    "color": "#388e3c",
-    "content": "🚗 = 3\n⚠️ Heavy traffic 🚦"
-  },
-  {
-    "lat": -0.06956,
-    "lng": 34.778175,
-    "title": "Security Officexx",
-    "color": "#388e3",
-    "content": "🚗 = 3\n⚠️ Heavy traffic 🚦"
-  },
-  {
     "lat": -0.06575,
     "lng": 34.77502,
     "title": "Entrance A",
@@ -49,8 +14,8 @@
     "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
   },
   {
-    "lat": -0.06575,
-    "lng": 34.77502,
+    "lat": -0.065725,
+    "lng": 34.774968,
     "title": "Entrance A",
     "color": "color",
     "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
@@ -84,80 +49,24 @@
     "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
   },
   {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
+    "lat": -0.063,
+    "lng": 34.78149,
+    "title": "",
+    "color": "#34A853",
+    "content": "xxxx"
   },
   {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
+    "lat": -0.066176,
+    "lng": 34.777072,
+    "title": "",
+    "color": "#34A853",
+    "content": "XXX"
   },
   {
-    "lat": -0.06767,
-    "lng": 34.77702,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
-  },
-  {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
-  },
-  {
-    "lat": 0.061884,
-    "lng": 34.780697,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
-  },
-  {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
-  },
-  {
-    "lat": 0.061498,
-    "lng": 0,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
-  },
-  {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
-  },
-  {
-    "lat": 0,
-    "lng": 34.757312,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
-  },
-  {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
-  },
-  {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate"
+    "lat": -0.064352,
+    "lng": 34.777222,
+    "title": "",
+    "color": "#FABB05",
+    "content": "XXX"
   }
 ]

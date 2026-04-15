@@ -81,21 +81,21 @@ html, body { height: 100%; margin:0; padding:0; }
 
   <div class="flex gap-2 mt-2">
     📌 <br>
-    <input type="text" id="lattitude" class="form-control flex-1" placeholder="Latitude"  required >
-    <input type="text" id="longitude" class="form-control flex-1" placeholder="Longitude" required >
+    <input type="text" id="lattitude" class="form-control flex-1" placeholder="Latitude"   name ="lattitude" required >
+    <input type="text" id="longitude" class="form-control flex-1" placeholder="Longitude" name ="longitude"  required >
   </div>
 
   <!-- Rest of your form stays EXACTLY the same -->
   <div class="flex gap-2 mt-2">
-    🚗<input type="text" id="spaces" class="form-control flex-1" placeholder="SPACES" required >
+    🚗<input  type="number" min="1" max="100" id="spaces" class="form-control flex-1" placeholder="SPACES" required >
   </div>
 
   <div class="flex gap-2 mt-2">
-    🚦<select name="cars" class="form-select w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400"  required >
+    🚦<select name="color" class="form-select w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400"  required >
       <option value="">-- COLOR CODE --</option>
-      <option value="🔴">🔴</option>
-      <option value="🟡" selected>🟡</option>
-      <option value="🟢">🟢</option>
+      <option value="#ea4335">🔴</option>
+      <option value="#FABB05" selected>🟡</option>
+      <option value="#34A853">🟢</option>
     </select>
   </div>
 
@@ -115,7 +115,7 @@ html, body { height: 100%; margin:0; padding:0; }
 </div>
 
   <div class="flex gap-2 mt-2">
-    💬 <textarea id="notes" rows="3" class="form-control w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 resize-vertical focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400" placeholder="Enter parking spaces or notes..."></textarea required >
+    💬 <textarea    name ="notes" id="notes" rows="3" class="form-control w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 resize-vertical focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400" placeholder="Enter parking spaces or notes..."></textarea required >
   </div>
 
   <div class="flex gap-2 mt-4 pt-4 border-t border-gray-200">

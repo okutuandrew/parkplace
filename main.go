@@ -7,6 +7,8 @@ import (
     "net/http"
     "parkplace/workerupdates"
      "parkplace/logs"
+     "encoding/json"
+     "strconv"
 )
 
 
@@ -80,9 +82,25 @@ func Bookparking(w http.ResponseWriter, r *http.Request) {
 }
 
 func ParkingUpdates(w http.ResponseWriter, r *http.Request) {
+
+
+PostSpace := workerupdates.Updates{}  
+
+   PostSpace.Lat,_ =  strconv.ParseFloat(r.FormValue("lattitude"), 64)
+   PostSpace.Long,_ =  strconv.ParseFloat(r.FormValue("longitude"), 64)
+   PostSpace.Color = r.FormValue("color")
+   PostSpace.Content = r.FormValue("notes")
+
+   WorkerupdatesPointer := &PostSpace
+
+	jsonData, _ := json.Marshal(  WorkerupdatesPointer  )
+
+	workerupdates.ScribeUpdates(  string(jsonData),  WorkerupdatesPointer  )
    
 
-	log.Println("✅ Worker Posted updates")
+
+
+	log.Println("✅ Worker Posted updates",PostSpace )
 
 	  data := PageData{Street: "KIMATHI STREET"}
 

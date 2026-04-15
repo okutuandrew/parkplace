@@ -1,5 +1,5 @@
 package main
-
+/*
 import  (  "parkplace/workerupdates"
             "os"
             "bufio"
@@ -68,3 +68,4 @@ func ScribeUpdatesCli(newData *Updates) {
 
 	os.WriteFile(filePath, finalData, 0666)
 }
+	*/
