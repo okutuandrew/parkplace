@@ -9,6 +9,7 @@ import (
      "parkplace/logs"
      "encoding/json"
      "strconv"
+
 )
 
 
@@ -22,9 +23,9 @@ func main() {
     log.Println(workerupdates.Workerdata())
     // Static files handler - MUST come BEFORE the specific routes
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
-
+    http.Handle("/F-MAP",ApiKey(http.HandlerFunc(FrontMapHandler )))
     // Your page route
-    http.HandleFunc("/F-MAP", FrontMapHandler)
+    //http.HandleFunc("/F-MAP", FrontMapHandler)
 	http.HandleFunc("/W-MAP",WorkerMapHandler)
 	http.HandleFunc("/PARKINGUPDATES",ParkingUpdates)
 	http.HandleFunc("/DRIVERLOGGIN",DriverLoggin)
@@ -40,6 +41,15 @@ func main() {
 
   
 }
+
+
+func  ApiKey(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    next.ServeHTTP(w, r)	
+		
+	})
+}
+
 
 
 

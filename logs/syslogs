@@ -71,3 +71,23 @@
 2026/04/15 15:37:43 ✅ Worker Posted updates {-0.063 34.78149  #34A853 xxxx}
 2026/04/15 15:38:37 ✅ Worker Posted updates {-0.066176 34.777072  #34A853 XXX}
 2026/04/15 15:38:59 ✅ Worker Posted updates {-0.064352 34.777222  #FABB05 XXX}
+2026/07/11 09:52:23 TEST
+2026/07/11 09:52:23 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/11 09:53:00 ✅ User accessed F-MAP page
+2026/07/11 09:56:01 ✅ DRIVER  OPENED APP 
+2026/07/11 10:43:44 TEST
+2026/07/11 10:43:44 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/11 13:32:22 TEST
+2026/07/11 13:32:22 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/11 13:57:10 TEST
+2026/07/11 13:57:11 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/11 13:57:11 listen tcp :8080: bind: address already in use
+2026/07/11 14:15:59 TEST
+2026/07/11 14:15:59 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/11 14:33:38 TEST
+2026/07/11 14:33:38 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/11 14:34:11 ✅ DRIVER  OPENED APP 
+2026/07/11 14:37:24 TEST
+2026/07/11 14:37:24 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/11 14:37:48 ✅ DRIVER  OPENED APP 
+2026/07/11 14:38:08 ✅ User accessed F-MAP page
