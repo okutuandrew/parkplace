@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkPlace - Secure Sign In</title>
+    <style>
+        /* Modern Native Reset & Styles */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f8fafc 50%, #ffffff 100%);
+            min-height: 100vh;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 16px;
+        }
+
+        /* Layout Container Card */
+        .login-card {
+            width: 100%; 
+            max-width: 400px;
+            background: #ffffff; 
+            border-radius: 24px;
+            box-shadow: 0 20px 25px -5px rgba(14, 165, 233, 0.1), 0 8px 10px -6px rgba(14, 165, 233, 0.05);
+            border: 1px solid #e0f2fe; 
+            overflow: hidden;
+        }
+
+        /* Visual Blue Banner */
+        .card-header { 
+            background-color: #0ea5e9; 
+            padding: 32px 24px 24px; 
+            text-align: center; 
+            color: #ffffff; 
+        }
+        
+        .logo-badge {
+            display: inline-flex; 
+            height: 48px; 
+            width: 48px; 
+            align-items: center; 
+            justify-content: center;
+            border-radius: 16px; 
+            background-color: #ffffff; 
+            color: #0ea5e9; 
+            font-weight: 900; 
+            font-size: 20px;
+            margin-bottom: 12px; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        
+        .title { 
+            font-size: 24px; 
+            font-weight: 700; 
+            letter-spacing: -0.5px; 
+        }
+        
+        .title span { 
+            color: #e0f2fe; 
+        }
+        
+        .subtitle { 
+            color: #e0f2fe; 
+            font-size: 11px; 
+            margin-top: 4px; 
+            font-weight: 500; 
+            letter-spacing: 1px; 
+            text-transform: uppercase; 
+        }
+
+        /* Toggle Menu Container */
+        .toggle-box {
+            padding: 24px 24px 8px;
+        }
+
+        /* Adjusted to hold 3 buttons side-by-side */
+        .toggle-container {
+            background-color: #f1f5f9;
+            padding: 4px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            position: relative;
+            gap: 2px;
+        }
+
+        .toggle-btn {
+            width: 33.33%;
+            padding: 10px 0;
+            font-size: 13px;
+            font-weight: 700;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: #64748b;
+            border-radius: 8px;
+            z-index: 2;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn.active {
+            background-color: #ffffff;
+            color: #0ea5e9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Form Visibility System */
+        .form-body { 
+            padding: 24px; 
+        }
+
+        .login-form {
+            display: flex; 
+            flex-direction: column; 
+            gap: 16px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+        
+        .input-group { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 6px; 
+        }
+        
+        .label { 
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #64748b; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+        }
+        
+        .input-field {
+            width: 100%; 
+            padding: 12px 16px; 
+            border-radius: 12px; 
+            border: 1px solid #cbd5e1;
+            font-size: 14px; 
+            transition: all 0.2s ease; 
+            outline: none;
+        }
+        
+        .input-field:focus { 
+            border-color: #0ea5e9; 
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15); 
+        }
+
+        .uppercase-field {
+            text-transform: uppercase;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+        
+        /* Interactive State Buttons */
+        .btn-submit {
+            width: 100%; 
+            background-color: #0ea5e9; 
+            color: #ffffff; 
+            font-weight: 700; 
+            font-size: 14px;
+            padding: 14px; 
+            border-radius: 12px; 
+            border: none; 
+            cursor: pointer; 
+            margin-top: 8px;
+            box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.2); 
+            transition: background 0.2s;
+        }
+        
+        .btn-submit:hover { 
+            background-color: #0284c7; 
+        }
+
+        .btn-dark {
+            background-color: #1e293b;
+            box-shadow: 0 4px 6px -1px rgba(30, 41, 59, 0.2);
+        }
+
+        .btn-dark:hover {
+            background-color: #0f172a;
+        }
+
+        .btn-teal {
+            background-color: #0d9488;
+            box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.2);
+        }
+
+        .btn-teal:hover {
+            background-color: #0f766e;
+        }
+        
+        .footer-text { 
+            margin-top: 24px; 
+            text-align: center; 
+            font-size: 12px; 
+            color: #94a3b8; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Simple Login Card System -->
+    <div class="login-card">
+        
+        <div class="card-header">
+            <div class="logo-badge">P</div>
+            <h1 class="title">Park<span>Place</span></h1>
+            <p id="portal-subtitle" class="subtitle">Driver Terminal Access</p>
+        </div>
+
+        <!-- Toggle Switch with 3 Elements -->
+        <div class="toggle-box">
+            <div class="toggle-container">
+                <button id="btn-driver" type="button" class="toggle-btn active">Driver</button>
+                <button id="btn-attendant" type="button" class="toggle-btn">Attendant</button>
+                <button id="btn-dashboard" type="button" class="toggle-btn">Dashboard</button>
+            </div>
+        </div>
+
+        <div class="form-body">
+            <!-- 1. DRIVER FORM -->
+                 <!-- 1. DRIVER FORM -->
+            <form id="form-driver" action="/F-MAP" method="POST" class="login-form">
+                <div class="input-group">
+                    <label class="label">Vehicle License Plate</label>
+                    <input type="text" 
+                           name="plate" 
+                           required 
+                           minlength="6" 
+                           maxlength="8" 
+                           pattern="^[A-Z]{3}\s?\d{3}[A-Z]{1}$|^[A-Z0-9\-]{6,8}$" 
+                           autocapitalize="characters"
+                           placeholder="e.g., KBC 123X" 
+                           class="input-field uppercase-field">
+                </div>
+
+                <!-- NEW: Phone Number Input Field -->
+                <div class="input-group">
+                    <label class="label">Phone Number</label>
+                    <input type="tel" 
+                           name="phone" 
+                           required 
+                           pattern="^(07|01|\+254)[0-9]{8}$" 
+                           maxlength="13"
+                           inputmode="tel"
+                           placeholder="e.g., 0712345678" 
+                           class="input-field">
+                </div>
+
+                <div class="input-group">
+                    <label class="label">Payment-code</label>
+                    <input type="text" 
+                           name="paycode" 
+                           required 
+                           minlength="4"
+                           maxlength="12"
+                           pattern="^[A-Z0-9]{4,12}$"
+                           autocapitalize="characters"
+                           placeholder="Enter M-Pesa / Card reference" 
+                           class="input-field uppercase-field">
+                </div>
+
+                <button type="submit" class="btn-submit">Enter Driver Portal</button>
+            </form>
+ 
+
+            <!-- 2. ATTENDANT FORM (Hidden by default) -->
+            <form id="form-attendant" action="/W-MAP" method="POST" class="login-form hidden">
+                <div class="input-group">
+                    <label class="label">Employee ID</label>
+                    <input type="text" name="worker_id" required placeholder="e.g., EMP-9821" class="input-field">
+                </div>
+
+                <div class="input-group">
+                    <label class="label">Station Security PIN</label>
+                    <input type="password" name="password" required placeholder="••••••••" class="input-field">
+                </div>
+
+                <button type="submit" class="btn-submit btn-dark">Verify Station Guard</button>
+            </form>
+
+            <!-- 3. DASHBOARD FORM (Hidden by default) -->
+            <form id="form-dashboard" action="/DASHBOARD" method="POST" class="login-form hidden">
+                <div class="input-group">
+                    <label class="label">Username</label>
+                    <input type="text" name="username" required placeholder="Enter username" class="input-field">
+                </div>
+
+                <div class="input-group">
+                    <label class="label">Password</label>
+                    <input type="password" name="password" required placeholder="••••••••" class="input-field">
+                </div>
+
+                <button type="submit" class="btn-submit btn-teal">Access Management Dashboard</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="footer-text">
+        <p>&copy; 2026 ParkPlace Technologies. Secure Entry Terminal.</p>
+    </div>
+
+    <!-- Toggle Intercept Script -->
+       <!-- Toggle Intercept Script -->
+    <script>
+        const btnDriver = document.getElementById('btn-driver');
+        const btnAttendant = document.getElementById('btn-attendant');
+        const btnDashboard = document.getElementById('btn-dashboard');
+
+        const formDriver = document.getElementById('form-driver');
+        const formAttendant = document.getElementById('form-attendant');
+        const formDashboard = document.getElementById('form-dashboard');
+
+        const portalSubtitle = document.getElementById('portal-subtitle');
+
+        // 1. Attendant button click event handler
+        btnAttendant.addEventListener('click', () => {
+            btnAttendant.classList.add('active');
+            btnDriver.classList.remove('active');
+            btnDashboard.classList.remove('active');
+
+            formDriver.classList.add('hidden');
+            formDashboard.classList.add('hidden');
+            formAttendant.classList.remove('hidden');
+
+            portalSubtitle.innerText = "Attendant Control Terminal";
+        });
+
+        // 2. Driver button click event handler
+        btnDriver.addEventListener('click', () => {
+            btnDriver.classList.add('active');
+            btnAttendant.classList.remove('active');
+            btnDashboard.classList.remove('active');
+
+            formAttendant.classList.add('hidden');
+            formDashboard.classList.add('hidden');
+            formDriver.classList.remove('hidden');
+
+            portalSubtitle.innerText = "Driver Terminal Access";
+        });
+
+        // 3. Dashboard button click event handler
+        btnDashboard.addEventListener('click', () => {
+            btnDashboard.classList.add('active');
+            btnDriver.classList.remove('active');
+            btnAttendant.classList.remove('active');
+
+            formDriver.classList.add('hidden');
+            formAttendant.classList.add('hidden');
+            formDashboard.classList.remove('hidden');
+
+            portalSubtitle.innerText = "Administrative Dashboard Access";
+        });
+    </script>
+</body>
+</html>

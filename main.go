@@ -10,6 +10,7 @@ import (
      "encoding/json"
      "strconv"
      "parkplace/Middlewares"
+     "parkplace/WbSocks"
 
 )
 
@@ -23,6 +24,8 @@ func main() {
     logs.SysLogs()
     log.Println(workerupdates.Workerdata())
     // Static files handler - MUST come BEFORE the specific routes
+
+    http.HandleFunc("/",LandingPage)
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
     http.Handle("/F-MAP",Middlewares.SessionTracker(http.HandlerFunc(FrontMapHandler )))
     // Your page route
@@ -31,7 +34,9 @@ func main() {
 	http.HandleFunc("/PARKINGUPDATES",ParkingUpdates)
 	http.HandleFunc("/DRIVERLOGGIN",DriverLoggin)
 	http.HandleFunc("/WORKERLOGGIN",WorkerLoggin)
+    http.HandleFunc("/ws", WbSocks.DriverMapWbScock)
 
+    http.HandleFunc("/DASHBOARD",Dashboard)
     // Optional route
     http.HandleFunc("/BOOKPARKING", Bookparking)
 
@@ -44,7 +49,43 @@ func main() {
 }
 
 
+func LandingPage(w http.ResponseWriter, r *http.Request) {
+    // 1. Parse the file and save it to the tmpl variable (not _)
+    tmpl, err := template.ParseFiles("forms/landingpage.html")
+    if err != nil {
+        http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
+        return
+    }
 
+    // 2. Fix your log to accurately match the action
+    log.Println("✅ User accessed the main Landing Login Page Portal")
+
+    // 3. CRUCIAL: Execute the template to send the HTML down to the browser window
+    err = tmpl.Execute(w, nil) // passing nil since this form doesn't need dynamic Go struct data
+    if err != nil {
+        http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
+    }
+}
+
+
+
+func Dashboard(w http.ResponseWriter, r *http.Request) {
+    // 1. Parse the file and save it to the tmpl variable (not _)
+    tmpl, err := template.ParseFiles("forms/dashboard.html")
+    if err != nil {
+        http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    // 2. Fix your log to accurately match the action
+    log.Println("✅ User accessed the main Landing Login Page Portal")
+
+    // 3. CRUCIAL: Execute the template to send the HTML down to the browser window
+    err = tmpl.Execute(w, nil) // passing nil since this form doesn't need dynamic Go struct data
+    if err != nil {
+        http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
+    }
+}
 
 
 

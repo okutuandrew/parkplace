@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkPlace - Management Dashboard</title>
+    <style>
+        /* Core Reset & Workspace CSS Variables */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        :root {
+            --sidebar-bg: #0f172a;
+            --sidebar-hover: #1e293b;
+            --sidebar-active: #0ea5e9;
+            --main-bg: #f8fafc;
+            --card-border: #e2e8f0;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            background-color: var(--main-bg);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        /* 1. DARK SIDEBAR LAYOUT */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar-brand {
+            padding: 24px;
+            font-size: 20px;
+            font-weight: 700;
+            border-b: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-icon {
+            height: 32px; width: 32px; background-color: var(--sidebar-active);
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 16px; color: #ffffff;
+        }
+
+        .sidebar-brand span { color: var(--sidebar-active); }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu-item a {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .menu-item a:hover {
+            background-color: var(--sidebar-hover);
+            color: #ffffff;
+        }
+
+        .menu-item.active a {
+            background-color: var(--sidebar-active);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* 2. MAIN CONTENT AREA */
+        .main-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        /* Top Navbar */
+        .top-navbar {
+            height: 65px;
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+        }
+
+        .nav-title h2 { font-size: 18px; font-weight: 700; }
+        .user-profile { font-size: 14px; font-weight: 600; color: var(--text-muted); }
+        .user-profile span { color: var(--text-dark); }
+
+        /* Dashboard Workspace Panels */
+        .content-body {
+            padding: 32px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Metric Highlights Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-card {
+            background-color: #ffffff;
+            border: 1px solid var(--card-border);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .metric-label { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .metric-value { font-size: 28px; font-weight: 800; margin-top: 6px; }
+        .metric-change { font-size: 12px; font-weight: 600; margin-top: 4px; color: #10b981; }
+
+        /* Graphical Analytics Section */
+        .analytics-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .analytics-section { grid-template-columns: 1fr; }
+            body { flex-direction: column; }
+            .sidebar { width: 100%; }
+        }
+
+        .chart-card, .audit-card {
+            background-color: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 24px;
+        }
+
+        .card-title { font-size: 15px; font-weight: 700; margin-bottom: 20px; color: var(--text-dark); }
+
+        /* Pure Inline SVG Chart Adjustments */
+        .chart-container {
+            width: 100%;
+            height: 220px;
+            position: relative;
+        }
+
+        /* 3. AUDIT TRAIL LOG MODULE */
+        .audit-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .audit-item {
+            padding: 12px;
+            background-color: var(--main-bg);
+            border-radius: 10px;
+            font-size: 13px;
+            border-left: 4px solid var(--sidebar-active);
+        }
+
+        .audit-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 11px;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .audit-user { color: var(--text-dark); font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR NAVIGATION MENU CONTAINER -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon">P</div>
+            Park<span>Place</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-menu menu-item active"><a href="#">Overview</a></li>
+            <li class="sidebar-menu menu-item"><a href="/F-MAP">Driver Map</a></li>
+            <li class="sidebar-menu menu-item"><a href="/W-MAP">Worker Terminal</a></li>
+            <li class="sidebar-menu menu-item"><a href="#">System Audits</a></li>
+        </ul>
+    </div>
+
+    <!-- MAIN RIGHT CONTAINER WRAPPER -->
+    <div class="main-wrapper">
+        <!-- Top Horizontal Header Bar -->
+        <div class="top-navbar">
+            <div class="nav-title">
+                <h2>Application Overview</h2>
+            </div>
+            <div class="user-profile">
+                Signed in as: <span>Andy ▼</span>
+            </div>
+        </div>
+
+        <!-- Dashboard Working Content Sandbox -->
+        <div class="content-body">
+            
+            <!-- ROW 1: DUMMY METRICS CARDS -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Cars Parked</div>
+                    <div class="metric-value">142</div>
+                    <div class="metric-change">↑ 12% vs yesterday</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Active Attendants</div>
+                    <div class="metric-value">18</div>
+                    <div class="metric-change" style="color: var(--text-muted);">Stable deployment</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Today's Revenue</div>
+                    <div class="metric-value">KES 24,500</div>
+                    <div class="metric-change">↑ 8% this hour</div>
+                </div>
+            </div>
+
+            <!-- ROW 2: GRAPHS & AUDIT LOGGER LAYOUT -->
+            <div class="analytics-section">
+                
+                <!-- Graph Chart Module Block -->
+                <div class="chart-card">
+                    <div class="card-title">Hourly Space Occupancy Metrics</div>
+                    <div class="chart-container">
+                        <!-- Instant zero-dependency native SVG Vector Graph -->
+                        <svg viewBox="0 0 500 200" style="width:100%; height:100%;">
+                            <!-- Grid background references -->
+                            <line x1="0" y1="50" x2="500" y2="50" stroke="#f1f5f9" stroke-width="1" />
+                            <line x1="0" y1="100" x2="500" y2="100" stroke="#f1f5f9" stroke-width="1" />
+                            <line x1="0" y1="150" x2="500" y2="150" stroke="#f1f5f9" stroke-width="1" />
+                            
+                            <!-- Graph line path filled with dummy historical vectors -->
+                            <path d="M 0 160 Q 100 120 200 140 T 400 60 T 500 40" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M 0 160 Q 100 120 200 140 T 400 60 T 500 40 L 500 200 L 0 200 Z" fill="linear-gradient(to bottom, rgba(14,165,233,0.2), transparent)" opacity="0.1"/>
+                            
+                            <!-- Tracking nodes -->
+                            <circle cx="200" cy="140" r="6" fill="#0ea5e9" />
+                            <circle cx="400" cy="60" r="6" fill="#0ea5e9" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Audit Log Ledger Box -->
+                <div class="audit-card">
+                    <div class="card-title">Live System Audit Ledger</div>
+                    <div class="audit-list">
+                        <div class="audit-item">
+                            <div class="audit-meta">
+                                <span class="audit-user">Attendant: John_Doe</span>
+                                <span>12:04 PM</span>
+                            </div>

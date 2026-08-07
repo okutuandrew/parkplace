@@ -104,3 +104,847 @@
 2026/07/11 15:19:32 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
 2026/07/11 15:19:43 ✅ DRIVER  OPENED APP 
 2026/07/11 15:19:57 ✅ User accessed F-MAP page
+2026/07/12 13:35:40 TEST
+2026/07/12 13:35:40 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/12 13:36:52 ✅ DRIVER  OPENED APP 
+2026/07/12 13:37:02 ✅ User accessed F-MAP page
+2026/07/12 13:55:00 TEST
+2026/07/12 13:55:00 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/12 14:40:35 TEST
+2026/07/12 14:40:35 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/12 14:40:59 Client connected
+2026/07/12 14:41:02 Received: hi
+2026/07/12 14:41:10 Client connected
+2026/07/12 14:41:16 Received: test
+2026/07/12 14:41:21 Received: hi too 
+2026/07/12 14:43:20 Disconnected
+2026/07/12 15:34:36 TEST
+2026/07/12 15:34:36 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/12 15:35:04 ✅ User accessed F-MAP page
+2026/07/12 15:37:32 ✅ User accessed F-MAP page
+2026/07/12 15:38:03 ✅ User accessed F-MAP page
+2026/07/12 15:49:25 TEST
+2026/07/12 15:49:25 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/12 15:49:36 ✅ User accessed F-MAP page
+2026/07/12 15:49:36 Client connected
+2026/07/12 15:50:14 Disconnected
+2026/07/12 15:50:14 ✅ User accessed F-MAP page
+2026/07/12 15:50:15 Client connected
+2026/07/12 15:59:54 TEST
+2026/07/12 15:59:54 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/07/12 15:59:56 Client connected
+2026/07/12 16:00:03 Disconnected
+2026/07/12 16:00:04 ✅ User accessed F-MAP page
+2026/07/12 16:00:04 Client connected
+2026/08/06 08:46:18 TEST
+2026/08/06 08:46:18 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 08:46:32 ✅ User accessed F-MAP page
+2026/08/06 08:46:33 Client connected
+2026/08/06 08:46:34 Received: {"type":"connected","role":"driver"}
+2026/08/06 09:15:52 Disconnected
+2026/08/06 09:15:57 ✅ User accessed F-MAP page
+2026/08/06 09:15:58 Client connected
+2026/08/06 09:15:58 Received: {"type":"connected","role":"driver"}
+2026/08/06 09:26:32 TEST
+2026/08/06 09:26:32 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 09:26:33 Client connected
+2026/08/06 09:26:33 Received: {"type":"connected","role":"driver"}
+2026/08/06 09:26:40 http: panic serving 127.0.0.1:36478: runtime error: invalid memory address or nil pointer dereference
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc00029a000}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc00029a000}, 0xc000139b30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc00029a000?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc00029a000}, 0xc000282000)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000109b00?}, {0x8b4388?, 0xc00029a000?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000128360, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:40 Disconnected
+2026/08/06 09:26:40 http: panic serving 127.0.0.1:36224: runtime error: invalid memory address or nil pointer dereference
+goroutine 35 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc00029a0e0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc00029a0e0}, 0xc0002c6b30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc00029a0e0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc00029a0e0}, 0xc000282120)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000280150?}, {0x8b4388?, 0xc00029a0e0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000286090, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:40 http: panic serving 127.0.0.1:36230: runtime error: invalid memory address or nil pointer dereference
+goroutine 10 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc00029a1c0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc00029a1c0}, 0xc0002c6b30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc00029a1c0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc00029a1c0}, 0xc000282240)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000280270?}, {0x8b4388?, 0xc00029a1c0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0001286c0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:40 http: panic serving 127.0.0.1:36234: runtime error: invalid memory address or nil pointer dereference
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc00029a2a0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc00029a2a0}, 0xc00005db30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc00029a2a0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc00029a2a0}, 0xc0002570e0)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000255e90?}, {0x8b4388?, 0xc00029a2a0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000128750, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:40 http: panic serving 127.0.0.1:36248: runtime error: invalid memory address or nil pointer dereference
+goroutine 12 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0001769a0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0001769a0}, 0xc00005eb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0001769a0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0001769a0}, 0xc000257200)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000255f50?}, {0x8b4388?, 0xc0001769a0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0001287e0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:40 http: panic serving 127.0.0.1:36260: runtime error: invalid memory address or nil pointer dereference
+goroutine 39 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc00029a380}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc00029a380}, 0xc00005db30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc00029a380?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc00029a380}, 0xc000282360)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000280540?}, {0x8b4388?, 0xc00029a380?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000286480, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:40 http: panic serving 127.0.0.1:36264: runtime error: invalid memory address or nil pointer dereference
+goroutine 19 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0000b60e0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0000b60e0}, 0xc000058b30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0000b60e0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0000b60e0}, 0xc00009e5a0)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0000901e0?}, {0x8b4388?, 0xc0000b60e0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000a0120, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:40 http: panic serving 127.0.0.1:36272: runtime error: invalid memory address or nil pointer dereference
+goroutine 14 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc000176a80}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc000176a80}, 0xc00005eb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc000176a80?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc000176a80}, 0xc000257320)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000264150?}, {0x8b4388?, 0xc000176a80?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000128990, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:40 http: panic serving 127.0.0.1:36284: runtime error: invalid memory address or nil pointer dereference
+goroutine 16 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc000176b60}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc000176b60}, 0xc00005eb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc000176b60?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc000176b60}, 0xc000257440)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0002642d0?}, {0x8b4388?, 0xc000176b60?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000128b40, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:40 http: panic serving 127.0.0.1:36294: runtime error: invalid memory address or nil pointer dereference
+goroutine 41 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc000176c40}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc000176c40}, 0xc00005eb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc000176c40?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc000176c40}, 0xc000257560)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0002643f0?}, {0x8b4388?, 0xc000176c40?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000286630, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:43 http: panic serving 127.0.0.1:36300: runtime error: invalid memory address or nil pointer dereference
+goroutine 52 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc00029a460}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc00029a460}, 0xc00005eb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc00029a460?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc00029a460}, 0xc000257680)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000264570?}, {0x8b4388?, 0xc00029a460?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000128e10, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:43 http: panic serving 127.0.0.1:36316: runtime error: invalid memory address or nil pointer dereference
+goroutine 21 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0000b61c0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0000b61c0}, 0xc000058b30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0000b61c0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0000b61c0}, 0xc00009e6c0)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000090360?}, {0x8b4388?, 0xc0000b61c0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000a02d0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:43 http: panic serving 127.0.0.1:36320: runtime error: invalid memory address or nil pointer dereference
+goroutine 43 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc000176d20}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc000176d20}, 0xc00005fb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc000176d20?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc000176d20}, 0xc0002577a0)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0002645d0?}, {0x8b4388?, 0xc000176d20?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0002867e0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:43 http: panic serving 127.0.0.1:36326: runtime error: invalid memory address or nil pointer dereference
+goroutine 54 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0000b62a0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0000b62a0}, 0xc00005fb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0000b62a0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0000b62a0}, 0xc0002578c0)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000264750?}, {0x8b4388?, 0xc0000b62a0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000128fc0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:43 http: panic serving 127.0.0.1:36336: runtime error: invalid memory address or nil pointer dereference
+goroutine 24 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0000b6380}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0000b6380}, 0xc00005fb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0000b6380?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0000b6380}, 0xc00009e7e0)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000090630?}, {0x8b4388?, 0xc0000b6380?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000a05a0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:43 http: panic serving 127.0.0.1:36350: runtime error: invalid memory address or nil pointer dereference
+goroutine 26 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0000b6460}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0000b6460}, 0xc00005fb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0000b6460?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0000b6460}, 0xc00009e900)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0000907b0?}, {0x8b4388?, 0xc0000b6460?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000a0750, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:43 http: panic serving 127.0.0.1:36358: runtime error: invalid memory address or nil pointer dereference
+goroutine 28 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0000b6540}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0000b6540}, 0xc00005fb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0000b6540?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0000b6540}, 0xc00009ea20)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000090930?}, {0x8b4388?, 0xc0000b6540?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000a0900, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:43 http: panic serving 127.0.0.1:36368: runtime error: invalid memory address or nil pointer dereference
+goroutine 30 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc000440000}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc000440000}, 0xc0002c2b30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc000440000?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc000440000}, 0xc000428000)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000422030?}, {0x8b4388?, 0xc000440000?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000a0ab0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:43 http: panic serving 127.0.0.1:36372: runtime error: invalid memory address or nil pointer dereference
+goroutine 67 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0004400e0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0004400e0}, 0xc0002c2b30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0004400e0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0004400e0}, 0xc000428120)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0004221b0?}, {0x8b4388?, 0xc0004400e0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00042c120, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:26:43 http: panic serving 127.0.0.1:36388: runtime error: invalid memory address or nil pointer dereference
+goroutine 69 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0004401c0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0004401c0}, 0xc0002c2b30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0004401c0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0004401c0}, 0xc000428240)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000422330?}, {0x8b4388?, 0xc0004401c0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00042c2d0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:28:46 http: panic serving 127.0.0.1:35040: runtime error: invalid memory address or nil pointer dereference
+goroutine 31 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0004402a0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0004402a0}, 0xc00005fb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0004402a0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0004402a0}, 0xc00009eb40)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000090b10?}, {0x8b4388?, 0xc0004402a0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000a0b40, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:28:46 http: panic serving 127.0.0.1:35046: runtime error: invalid memory address or nil pointer dereference
+goroutine 72 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc000176e00}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc000176e00}, 0xc00005fb30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc000176e00?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc000176e00}, 0xc000428360)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000422600?}, {0x8b4388?, 0xc000176e00?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00042c5a0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:28:46 http: panic serving 127.0.0.1:35050: runtime error: invalid memory address or nil pointer dereference
+goroutine 73 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc000176ee0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc000176ee0}, 0xc0002c2b30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc000176ee0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc000176ee0}, 0xc000428480)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0004226c0?}, {0x8b4388?, 0xc000176ee0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00042c630, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:28:46 http: panic serving 127.0.0.1:35062: runtime error: invalid memory address or nil pointer dereference
+goroutine 60 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc000176000}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc000176000}, 0xc00005ab30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc000176000?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc000176000}, 0xc00009e000)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0000900f0?}, {0x8b4388?, 0xc000176000?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000128120, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:28:46 http: panic serving 127.0.0.1:35072: runtime error: invalid memory address or nil pointer dereference
+goroutine 75 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc00047c000}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc00047c000}, 0xc00005ab30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc00047c000?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc00047c000}, 0xc000428000)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000264090?}, {0x8b4388?, 0xc00047c000?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00042c000, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:28:46 http: panic serving 127.0.0.1:35080: runtime error: invalid memory address or nil pointer dereference
+goroutine 32 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc00047c0e0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc00047c0e0}, 0xc00005ab30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc00047c0e0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc00047c0e0}, 0xc000428120)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0002641b0?}, {0x8b4388?, 0xc00047c0e0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000002000, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:28:46 http: panic serving 127.0.0.1:35094: runtime error: invalid memory address or nil pointer dereference
+goroutine 62 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc00047c1c0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc00047c1c0}, 0xc00005ab30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc00047c1c0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc00047c1c0}, 0xc000428240)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0002642d0?}, {0x8b4388?, 0xc00047c1c0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0001282d0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:28:46 http: panic serving 127.0.0.1:35102: runtime error: invalid memory address or nil pointer dereference
+goroutine 79 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0001760e0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0001760e0}, 0xc00005ab30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0001760e0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0001760e0}, 0xc000428360)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000264450?}, {0x8b4388?, 0xc0001760e0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00042c3f0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:28:46 http: panic serving 127.0.0.1:35106: runtime error: invalid memory address or nil pointer dereference
+goroutine 64 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc0000a4000}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc0000a4000}, 0xc00005ab30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc0000a4000?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc0000a4000}, 0xc00009e120)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0000903c0?}, {0x8b4388?, 0xc0000a4000?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000128480, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:28:46 http: panic serving 127.0.0.1:35122: runtime error: invalid memory address or nil pointer dereference
+goroutine 82 [running]:
+net/http.(*conn).serve.func1()
+	/usr/lib/go-1.22/src/net/http/server.go:1903 +0xbe
+panic({0x7afc00?, 0xb1d080?})
+	/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132
+html/template.(*Template).escape(0x0)
+	/usr/lib/go-1.22/src/html/template/template.go:97 +0x29
+html/template.(*Template).Execute(0x0, {0x8b2140, 0xc00047c2a0}, {0x0, 0x0})
+	/usr/lib/go-1.22/src/html/template/template.go:121 +0x2c
+main.LandingPageHandler({0x8b4388, 0xc00047c2a0}, 0xc00005ab30?)
+	/home/aokutu/Desktop/parkplace/main.go:54 +0x85
+net/http.HandlerFunc.ServeHTTP(0xb324e0?, {0x8b4388?, 0xc00047c2a0?}, 0x71adfa?)
+	/usr/lib/go-1.22/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46ba19?, {0x8b4388, 0xc00047c2a0}, 0xc00013c480)
+	/usr/lib/go-1.22/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0004221b0?}, {0x8b4388?, 0xc00047c2a0?}, 0x6?)
+	/usr/lib/go-1.22/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000021b0, {0x8b4b10, 0xc0001099b0})
+	/usr/lib/go-1.22/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/lib/go-1.22/src/net/http/server.go:3290 +0x4b4
+2026/08/06 09:28:52 TEST
+2026/08/06 09:28:52 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 09:29:03 ❌ Error: Template file not found: open maps/landing.html: no such file or directory
+2026/08/06 09:29:51 TEST
+2026/08/06 09:29:51 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 09:30:03 ❌ Error: Template file not found: open forms/landing.html: no such file or directory
+2026/08/06 09:30:42 TEST
+2026/08/06 09:30:42 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 09:30:42 listen tcp :8080: bind: address already in use
+2026/08/06 09:30:52 TEST
+2026/08/06 09:30:52 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 09:30:56 ✅ Serving gateway login page smoothly
+2026/08/06 09:32:26 ✅ Serving gateway login page smoothly
+2026/08/06 09:32:26 http: superfluous response.WriteHeader call from main.LandingPageHandler (main.go:66)
+2026/08/06 09:33:34 TEST
+2026/08/06 09:33:34 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 09:33:46 ✅ User accessed F-MAP page
+2026/08/06 09:33:46 Client connected
+2026/08/06 09:33:46 Received: {"type":"connected","role":"driver"}
+2026/08/06 09:37:39 TEST
+2026/08/06 09:37:39 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 09:37:42 Client connected
+2026/08/06 09:37:42 Received: {"type":"connected","role":"driver"}
+2026/08/06 09:37:53 websocket: the client is not using the websocket protocol: 'upgrade' token not found in 'Connection' header
+2026/08/06 09:38:00 ✅ User accessed F-MAP page
+2026/08/06 09:38:00 Client connected
+2026/08/06 09:38:00 Received: {"type":"connected","role":"driver"}
+2026/08/06 09:38:53 Disconnected
+2026/08/06 09:38:53 ✅ Worker Posted updates {0 0   }
+2026/08/06 09:39:24 ✅ DRIVER  OPENED APP 
+2026/08/06 09:39:54 ✅ User accessed F-MAP page
+2026/08/06 09:39:54 Client connected
+2026/08/06 09:39:55 Received: {"type":"connected","role":"driver"}
+2026/08/06 09:40:23 Disconnected
+2026/08/06 09:40:54 ✅ User accessed W-MAP page
+2026/08/06 09:42:25 ✅ Worker Posted updates {-0.065944 34.775034  #FABB05 XXX}
+2026/08/06 09:57:52 Disconnected
+2026/08/06 10:30:00 TEST
+2026/08/06 10:30:00 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 10:30:21 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:35:27 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:36:44 TEST
+2026/08/06 10:36:44 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 10:37:01 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:37:01 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:37:04 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:37:10 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:37:19 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:37:39 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:39:58 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:39:58 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:39:59 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:40:00 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:40:00 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:40:00 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:40:01 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:42:40 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:42:41 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:42:41 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:42:42 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:42:42 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:42:47 ✅ User accessed F-MAP page
+2026/08/06 10:42:47 Client connected
+2026/08/06 10:42:48 Received: {"type":"connected","role":"driver"}
+2026/08/06 10:42:53 Disconnected
+2026/08/06 10:42:53 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:42:53 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:45:30 TEST
+2026/08/06 10:45:30 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 10:45:36 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 10:45:41 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:00:36 TEST
+2026/08/06 11:00:36 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 11:00:43 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:03:34 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:05:02 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:05:51 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:06:11 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:06:14 ✅ Worker   OPENED APP 
+2026/08/06 11:14:04 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:21:49 TEST
+2026/08/06 11:21:49 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 11:22:08 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:22:15 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:24:36 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:26:02 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:26:03 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:28:10 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:28:11 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:28:15 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:28:15 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:29:19 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:29:19 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:29:19 http: superfluous response.WriteHeader call from main.LandingPage (main.go:64)
+2026/08/06 11:30:28 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:31:42 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:34:44 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:37:35 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:37:35 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:38:26 ✅ DRIVER  OPENED APP 
+2026/08/06 11:38:26 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:38:26 http: superfluous response.WriteHeader call from main.LandingPage (main.go:64)
+2026/08/06 11:39:39 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:39:41 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:39:53 ✅ User accessed F-MAP page
+2026/08/06 11:39:53 Client connected
+2026/08/06 11:39:53 Received: {"type":"connected","role":"driver"}
+2026/08/06 11:43:58 Disconnected
+2026/08/06 11:43:58 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:46:47 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:46:47 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:46:47 http: superfluous response.WriteHeader call from main.LandingPage (main.go:64)
+2026/08/06 11:47:52 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:48:03 TEST
+2026/08/06 11:48:03 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/06 11:48:40 ✅ User accessed F-MAP page
+2026/08/06 11:48:40 Client connected
+2026/08/06 11:48:41 Received: {"type":"connected","role":"driver"}
+2026/08/06 11:48:41 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:48:45 Disconnected
+2026/08/06 11:48:45 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:48:49 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:50:04 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:55:00 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:55:10 ✅ User accessed F-MAP page
+2026/08/06 11:55:11 Client connected
+2026/08/06 11:55:11 Received: {"type":"connected","role":"driver"}
+2026/08/06 11:55:37 Disconnected
+2026/08/06 11:55:39 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:55:50 ✅ User accessed W-MAP page
+2026/08/06 11:57:52 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:59:11 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:59:11 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 11:59:11 http: superfluous response.WriteHeader call from main.LandingPage (main.go:64)
+2026/08/06 12:19:30 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 12:19:31 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 12:19:32 ✅ User accessed the main Landing Login Page Portal
+2026/08/06 12:19:47 ✅ User accessed the main Landing Login Page Portal
