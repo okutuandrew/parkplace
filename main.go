@@ -15,6 +15,21 @@ import (
 )
 
 
+
+func checkCookie(next http.HandlerFunc) http.HandlerFunc {
+    return func(w http.ResponseWriter, r *http.Request) {
+        cookie, err := r.Cookie("session")
+        if err != nil || cookie.Value == "" {
+            http.Redirect(w, r, "/", http.StatusSeeOther)
+            return
+        }
+        next(w, r)
+    }
+}
+
+
+
+
 type PageData struct {
     Street string
 }
@@ -50,7 +65,15 @@ func main() {
 
 
 func LandingPage(w http.ResponseWriter, r *http.Request) {
-    // 1. Parse the file and save it to the tmpl variable (not _)
+    
+
+       // add  cookies 
+     http.SetCookie(w, &http.Cookie{
+        Name:  "session",
+        Value: "driver-logged-in",
+        Path:  "/",
+    })
+
     tmpl, err := template.ParseFiles("forms/landingpage.html")
     if err != nil {
         http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
@@ -167,14 +190,9 @@ func DriverLoggin(w http.ResponseWriter, r *http.Request) {
 
 	log.Println("✅ DRIVER  OPENED APP ")
 
-    // add  cookies 
-     http.SetCookie(w, &http.Cookie{
-        Name:  "session",
-        Value: "driver-logged-in",
-        Path:  "/",
-    })
+ 
 
-	tmpl, err := template.ParseFiles("forms/driverloggin.html")
+	tmpl, err := template.ParseFiles("forms/landingpage.html")
 	if err != nil {
 		http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
 		return
