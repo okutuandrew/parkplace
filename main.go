@@ -167,6 +167,13 @@ func DriverLoggin(w http.ResponseWriter, r *http.Request) {
 
 	log.Println("✅ DRIVER  OPENED APP ")
 
+    // add  cookies 
+     http.SetCookie(w, &http.Cookie{
+        Name:  "session",
+        Value: "driver-logged-in",
+        Path:  "/",
+    })
+
 	tmpl, err := template.ParseFiles("forms/driverloggin.html")
 	if err != nil {
 		http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
