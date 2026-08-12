@@ -132,7 +132,25 @@ html, body { height: 100%; margin:0; padding:0; }
 
 
 <script>
-let map = L.map('map').setView([-0.06575, 34.77402], 15);
+ let map = L.map('map');
+
+
+map.locate({ 
+    setView: true, 
+    maxZoom: 27,
+    watch: false  
+});
+
+
+map.on('locationfound', function(e) {
+   
+    if (e.latlng.lat !== 0 && e.latlng.lng !== 0) {
+        L.marker(e.latlng).addTo(map).bindPopup("Your Location").openPopup();
+    }
+});
+  
+
+
 let userPos = null;
 let userMarker = null;
 let routeLine = null;
@@ -194,7 +212,7 @@ function loadMarkers(data) {
   const bounds = L.latLngBounds();
 
   data.forEach((p, index) => {
-    if (typeof p.lat !== 'number' || typeof p.lng !== 'number') return;
+    if (typeof p.lat !== 'number' || typeof p.lng !== 'number' || (p.lat === 0 && p.lng === 0)) return;
 
     const marker = L.circleMarker([p.lat, p.lng], {
       radius: 12,

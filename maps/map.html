@@ -82,7 +82,16 @@ html, body { height: 100%; margin:0; padding:0; }
 
 <script src="/static/js/mapwebsock.js"></script>
 <script>
-let map = L.map('map').setView([-0.06575, 34.77402], 15);
+ let map = L.map('map');
+
+map.locate({ 
+    setView: true, 
+    maxZoom: 27,
+    watch: false  
+});
+
+
+
 let userPos = null;
 let userMarker = null;
 let routeLine = null;
@@ -144,8 +153,10 @@ function loadMarkers(data) {
   const bounds = L.latLngBounds();
 
   data.forEach((p, index) => {
-    if (typeof p.lat !== 'number' || typeof p.lng !== 'number') return;
+    // 🟢 Line 157 updated correctly inside the loop
+    if (typeof p.lat !== 'number' || typeof p.lng !== 'number' || (p.lat === 0 && p.lng === 0)) return;
 
+    
     const marker = L.circleMarker([p.lat, p.lng], {
       radius: 12,
       fillColor: p.color || "#3388ff",
