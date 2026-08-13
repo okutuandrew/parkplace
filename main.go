@@ -11,6 +11,7 @@ import (
      "strconv"
      "parkplace/Middlewares"
      "parkplace/WbSocks"
+     "parkplace/static"
 
 )
 
@@ -34,8 +35,18 @@ type PageData struct {
     Street string
 }
 
+
+
+type FormData struct {  
+    Username string
+    Password string
+}
+
 func main() {
 
+
+     
+    static.ParkingData(); 
     logs.SysLogs()
     log.Println(workerupdates.Workerdata())
     // Static files handler - MUST come BEFORE the specific routes
@@ -93,7 +104,14 @@ func LandingPage(w http.ResponseWriter, r *http.Request) {
 
 
 func Dashboard(w http.ResponseWriter, r *http.Request) {
-    // 1. Parse the file and save it to the tmpl variable (not _)
+
+     data := FormData{}
+
+     if r.Method == "POST" {
+        data.Username = r.FormValue("username")  
+        log.Println("📥 Dashboard login attempt:", data.Username )
+     }
+
     tmpl, err := template.ParseFiles("forms/dashboard.html")
     if err != nil {
         http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
@@ -104,7 +122,7 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
     log.Println("✅ User accessed the main Landing Login Page Portal")
 
     // 3. CRUCIAL: Execute the template to send the HTML down to the browser window
-    err = tmpl.Execute(w, nil) // passing nil since this form doesn't need dynamic Go struct data
+    err = tmpl.Execute(w, data) 
     if err != nil {
         http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
     }
@@ -151,6 +169,7 @@ func Bookparking(w http.ResponseWriter, r *http.Request) {
 }
 
 func ParkingUpdates(w http.ResponseWriter, r *http.Request) {
+
 
 
 PostSpace := workerupdates.Updates{}  
