@@ -51,9 +51,9 @@ func main() {
 	http.HandleFunc("/WORKERLOGGIN",WorkerLoggin)
    http.HandleFunc("/ws", checkCookie(WbSocks.DriverMapWbScock))
 
-    http.HandleFunc("/DASHBOARD",Dashboard)
+    http.HandleFunc("/DASHBOARD", checkCookie(Dashboard))
     // Optional route
-    http.HandleFunc("/BOOKPARKING", Bookparking)
+    http.HandleFunc("/BOOKPARKING", checkCookie(Bookparking))
 
     fmt.Println("🚀 Server running on http://localhost:8080")
     fmt.Println("   Open → http://localhost:8080/F-MAP")
