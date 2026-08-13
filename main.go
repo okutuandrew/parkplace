@@ -42,14 +42,14 @@ func main() {
 
     http.HandleFunc("/",LandingPage)
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
-    http.Handle("/F-MAP",Middlewares.SessionTracker(http.HandlerFunc(FrontMapHandler )))
+    http.Handle("/F-MAP",Middlewares.SessionTracker(http.HandlerFunc(   checkCookie(FrontMapHandler ) )))
     // Your page route
     //http.HandleFunc("/F-MAP", FrontMapHandler)
-	http.HandleFunc("/W-MAP",WorkerMapHandler)
-	http.HandleFunc("/PARKINGUPDATES",ParkingUpdates)
+	http.HandleFunc("/W-MAP", checkCookie(WorkerMapHandler))
+	http.HandleFunc("/PARKINGUPDATES", checkCookie(ParkingUpdates))
 	http.HandleFunc("/DRIVERLOGGIN",DriverLoggin)
 	http.HandleFunc("/WORKERLOGGIN",WorkerLoggin)
-    http.HandleFunc("/ws", WbSocks.DriverMapWbScock)
+   http.HandleFunc("/ws", checkCookie(WbSocks.DriverMapWbScock))
 
     http.HandleFunc("/DASHBOARD",Dashboard)
     // Optional route
