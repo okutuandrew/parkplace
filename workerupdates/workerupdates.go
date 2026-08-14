@@ -13,6 +13,7 @@ type Updates struct {
     Title   string  `json:"title"`
     Color   string  `json:"color"`
     Content string  `json:"content"`
+	Spaces  int     `json:"spaces"`
 } 
 func Workerdata()  string {
 
@@ -22,6 +23,8 @@ func Workerdata()  string {
 	workerupdates.Title =  "Entrance A"
 	workerupdates.Color = "color"
 	workerupdates.Content = "🚗 Available: 5 spots\n🅿️ Near main gate"
+	workerupdates.Spaces = 0
+
 
 	WorkerupdatesPointer := &workerupdates
 

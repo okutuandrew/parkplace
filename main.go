@@ -40,7 +40,11 @@ type PageData struct {
 type FormData struct {  
     Username string
     Password string
+    TotalParking int
+    Spaces   int
 }
+
+
 
 func main() {
 
@@ -61,6 +65,7 @@ func main() {
 	http.HandleFunc("/DRIVERLOGGIN",DriverLoggin)
 	http.HandleFunc("/WORKERLOGGIN",WorkerLoggin)
    http.HandleFunc("/ws", checkCookie(WbSocks.DriverMapWbScock))
+
 
     http.HandleFunc("/DASHBOARD", checkCookie(Dashboard))
     // Optional route
@@ -107,9 +112,16 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
 
      data := FormData{}
 
+    
+
+	result := static.ParkingData()
+	data.TotalParking = result.Total
+    data.Spaces   = result.Spaces
+
+
      if r.Method == "POST" {
         data.Username = r.FormValue("username")  
-        log.Println("📥 Dashboard login attempt:", data.Username )
+        log.Println("Dashboard login attempt:", data )
      }
 
     tmpl, err := template.ParseFiles("forms/dashboard.html")
@@ -178,6 +190,8 @@ PostSpace := workerupdates.Updates{}
    PostSpace.Long,_ =  strconv.ParseFloat(r.FormValue("longitude"), 64)
    PostSpace.Color = r.FormValue("color")
    PostSpace.Content = r.FormValue("notes")
+   
+   PostSpace.Spaces,_ = strconv.Atoi(r.FormValue("spaces") )   
 
    WorkerupdatesPointer := &PostSpace
 

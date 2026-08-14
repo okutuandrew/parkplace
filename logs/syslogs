@@ -1194,3 +1194,229 @@ created by net/http.(*Server).Serve in goroutine 1
 2026/08/13 01:07:29 http: superfluous response.WriteHeader call from main.LandingPage (main.go:66)
 2026/08/13 01:07:41 ✅ User accessed W-MAP page
 2026/08/13 01:08:29 ✅ Worker Posted updates {-0.067763 34.767675  #ea4335 no notes}
+2026/08/13 02:21:36 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 02:21:46 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 02:47:10 ✅ DRIVER  OPENED APP 
+2026/08/13 02:47:11 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 02:50:50 ✅ DRIVER  OPENED APP 
+2026/08/13 02:50:51 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 02:50:51 http: superfluous response.WriteHeader call from main.LandingPage (main.go:66)
+2026/08/13 02:50:55 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 02:51:22 TEST
+2026/08/13 02:51:22 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/13 02:51:22 Client connected
+2026/08/13 02:51:22 Received: {"type":"connected","role":"driver"}
+2026/08/13 02:51:28 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 02:51:33 ✅ DRIVER  OPENED APP 
+2026/08/13 02:51:38 ✅ DRIVER  OPENED APP 
+2026/08/13 03:19:51 TEST
+2026/08/13 03:19:51 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/13 03:19:54 Client connected
+2026/08/13 03:19:54 Received: {"type":"connected","role":"driver"}
+2026/08/13 03:20:02 Disconnected
+2026/08/13 03:20:05 Client connected
+2026/08/13 03:20:05 Received: {"type":"connected","role":"driver"}
+2026/08/13 03:20:22 Disconnected
+2026/08/13 03:20:52 TEST
+2026/08/13 03:20:52 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/13 03:21:00 ✅ User accessed F-MAP page
+2026/08/13 03:21:00 Client connected
+2026/08/13 03:21:00 Received: {"type":"connected","role":"driver"}
+2026/08/13 03:21:08 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:21:08 Disconnected
+2026/08/13 03:21:16 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:21:18 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:26:52 ✅ DRIVER  OPENED APP 
+2026/08/13 03:27:02 ✅ DRIVER  OPENED APP 
+2026/08/13 03:27:03 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:27:43 TEST
+2026/08/13 03:27:43 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/13 03:27:59 ✅ User accessed W-MAP page
+2026/08/13 03:28:01 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:34:41 ✅ User accessed F-MAP page
+2026/08/13 03:34:42 Client connected
+2026/08/13 03:34:42 Received: {"type":"connected","role":"driver"}
+2026/08/13 03:35:13 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:35:13 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:35:33 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:35:33 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:35:37 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:35:38 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:35:51 ✅ DRIVER  OPENED APP 
+2026/08/13 03:35:52 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:35:55 ✅ DRIVER  OPENED APP 
+2026/08/13 03:35:55 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:38:22 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:38:22 Disconnected
+2026/08/13 03:38:27 ✅ User accessed W-MAP page
+2026/08/13 03:38:46 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:38:47 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:38:50 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:55:12 TEST
+2026/08/13 03:55:12 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/13 03:55:21 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:55:26 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:55:38 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:55:39 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:55:56 📥 Dashboard login attempt: kevlucciano
+2026/08/13 03:55:56 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:55:57 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:05 TEST
+2026/08/13 03:59:05 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/13 03:59:11 📥 Dashboard login attempt: kevlucciano
+2026/08/13 03:59:11 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:12 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:18 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:18 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:21 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:21 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:21 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:22 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:22 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:22 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:35 📥 Dashboard login attempt: andrew
+2026/08/13 03:59:35 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 03:59:36 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:00:15 TEST
+2026/08/13 04:00:15 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/13 04:00:24 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:00:25 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:00:34 📥 Dashboard login attempt: andrew
+2026/08/13 04:00:34 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:00:35 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:06:53 TEST
+2026/08/13 04:06:53 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/13 04:07:01 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:07:04 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:07:14 📥 Dashboard login attempt: andrew
+2026/08/13 04:07:14 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:07:15 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:09:53 TEST
+2026/08/13 04:09:53 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/13 04:10:01 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:10:03 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:10:14 📥 Dashboard login attempt: andrew
+2026/08/13 04:10:14 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:10:15 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:13:01 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:13:03 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:13:17 ✅ User accessed W-MAP page
+2026/08/13 04:13:19 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 04:53:34 ✅ DRIVER  OPENED APP 
+2026/08/13 04:53:44 ✅ User accessed W-MAP page
+2026/08/13 04:53:44 ✅ User accessed the main Landing Login Page Portal
+2026/08/13 05:05:52 TEST
+2026/08/13 05:05:52 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/14 17:16:28 TEST
+2026/08/14 17:16:28 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/14 17:47:23 ✅ User accessed F-MAP page
+2026/08/14 17:47:24 Client connected
+2026/08/14 17:47:24 Received: {"type":"connected","role":"driver"}
+2026/08/14 17:47:24 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 17:47:24 http: superfluous response.WriteHeader call from main.LandingPage (main.go:100)
+2026/08/14 17:47:31 Disconnected
+2026/08/14 17:47:31 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 17:47:35 📥 Dashboard login attempt: muleli.haddassah@gmail.com
+2026/08/14 17:47:35 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 17:48:18 📥 Dashboard login attempt: muleli.haddassah@gmail.com
+2026/08/14 17:48:18 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 17:51:13 📥 Dashboard login attempt: muleli.haddassah@gmail.com
+2026/08/14 17:51:13 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 17:54:11 📥 Dashboard login attempt: muleli.haddassah@gmail.com
+2026/08/14 17:54:11 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 17:54:11 http: superfluous response.WriteHeader call from main.Dashboard (main.go:127)
+2026/08/14 17:54:11 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 17:54:11 http: superfluous response.WriteHeader call from main.LandingPage (main.go:100)
+2026/08/14 18:05:41 📥 Dashboard login attempt: muleli.haddassah@gmail.com
+2026/08/14 18:05:41 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:05:41 http: superfluous response.WriteHeader call from main.Dashboard (main.go:127)
+2026/08/14 18:05:41 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:05:41 http: superfluous response.WriteHeader call from main.LandingPage (main.go:100)
+2026/08/14 18:06:03 TEST
+2026/08/14 18:06:03 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate"}
+2026/08/14 18:06:09 Dashboard login attempt: {muleli.haddassah@gmail.com  62}
+2026/08/14 18:06:09 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:06:09 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:06:09 http: superfluous response.WriteHeader call from main.LandingPage (main.go:103)
+2026/08/14 18:06:41 Dashboard login attempt: {muleli.haddassah@gmail.com  62}
+2026/08/14 18:06:41 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:08:35 Dashboard login attempt: {muleli.haddassah@gmail.com  62}
+2026/08/14 18:08:35 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:08:35 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:08:35 http: superfluous response.WriteHeader call from main.LandingPage (main.go:103)
+2026/08/14 18:11:57 Dashboard login attempt: {muleli.haddassah@gmail.com  2}
+2026/08/14 18:11:57 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:12:37 ✅ User accessed F-MAP page
+2026/08/14 18:12:38 Client connected
+2026/08/14 18:12:38 Received: {"type":"connected","role":"driver"}
+2026/08/14 18:12:38 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:12:38 http: superfluous response.WriteHeader call from main.LandingPage (main.go:103)
+2026/08/14 18:12:40 Disconnected
+2026/08/14 18:12:41 ✅ User accessed W-MAP page
+2026/08/14 18:28:28 TEST
+2026/08/14 18:28:28 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/14 18:28:41 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:28:44 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:28:46 ✅ User accessed W-MAP page
+2026/08/14 18:29:07 ✅ Worker Posted updates {-0.06536 34.774824  #34A853 XXXX 0}
+2026/08/14 18:37:00 TEST
+2026/08/14 18:37:00 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/14 18:37:09 ✅ Worker Posted updates {-0.06536 34.774824  #34A853 XXXX 0}
+2026/08/14 18:37:33 ✅ Worker Posted updates {-0.065274 34.777296  #ea4335 xxx 4}
+2026/08/14 18:37:34 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:37:34 http: superfluous response.WriteHeader call from main.LandingPage (main.go:103)
+2026/08/14 18:39:11 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:39:11 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:39:11 http: superfluous response.WriteHeader call from main.LandingPage (main.go:103)
+2026/08/14 18:39:28 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:54:11 TEST
+2026/08/14 18:54:11 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/14 18:54:24 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:54:24 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:54:24 http: superfluous response.WriteHeader call from main.LandingPage (main.go:103)
+2026/08/14 18:54:32 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:59:03 TEST
+2026/08/14 18:59:03 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/14 18:59:07 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:59:15 ✅ User accessed W-MAP page
+2026/08/14 18:59:37 ✅ Worker Posted updates {-0.066991 34.775216  #FABB05 x 10}
+2026/08/14 18:59:38 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 18:59:38 http: superfluous response.WriteHeader call from main.LandingPage (main.go:104)
+2026/08/14 18:59:45 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 19:11:24 websocket: the client is not using the websocket protocol: 'upgrade' token not found in 'Connection' header
+2026/08/14 19:20:13 TEST
+2026/08/14 19:20:13 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/14 19:20:29 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 19:20:30 Client connected
+2026/08/14 19:20:30 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/14 19:20:31 Disconnected
+2026/08/14 19:20:31 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 19:20:32 Client connected
+2026/08/14 19:20:32 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/14 19:20:41 ✅ User accessed W-MAP page
+2026/08/14 19:20:42 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 19:20:42 http: superfluous response.WriteHeader call from main.LandingPage (main.go:105)
+2026/08/14 19:21:09 ✅ User accessed W-MAP page
+2026/08/14 19:21:32 ✅ Worker Posted updates {-0.063965 34.774572  #FABB05 XXX 2}
+2026/08/14 19:21:32 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 19:21:33 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/14 19:21:33 WriteJSON failed, closing stream: websocket: close sent
+2026/08/14 19:21:41 Disconnected
+2026/08/14 19:21:41 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 19:21:41 Client connected
+2026/08/14 19:21:41 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/14 19:23:50 TEST
+2026/08/14 19:23:50 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/14 19:23:57 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 19:23:57 Client connected
+2026/08/14 19:23:57 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/14 19:24:03 ✅ Worker Posted updates {-0.063965 34.774572  #FABB05 XXX 2}
+2026/08/14 19:24:03 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/14 19:24:28 ✅ Worker Posted updates {-0.063386 34.776867  #34A853 xxx 5}
+2026/08/14 19:24:28 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/14 19:24:35 Disconnected
+2026/08/14 19:24:35 ✅ User accessed the main Landing Login Page Portal
+2026/08/14 19:24:35 Client connected
+2026/08/14 19:24:35 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/14 19:31:17 TEST
+2026/08/14 19:31:17 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}

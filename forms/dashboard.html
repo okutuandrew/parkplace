@@ -197,6 +197,39 @@
 
         .audit-user { color: var(--text-dark); font-weight: 700; }
     </style>
+
+    <script>
+        // Wait for the full HTML page to load first
+        document.addEventListener("DOMContentLoaded", function() {
+            const socket = new WebSocket("ws://" + window.location.host + "/ws");
+
+            socket.onmessage = function(event) {
+                if (event.data === "Welcome to Park Place 🚗") {
+                    console.log("Server Greeting:", event.data);
+                    return;
+                }
+
+                try {
+                    const data = JSON.parse(event.data);
+                    
+                    // Now these elements are fully loaded, so JavaScript can find them!
+                    if (data.Total !== undefined && data.Spaces !== undefined) {
+                        document.getElementById("live-total").innerText = data.Total;
+                        document.getElementById("live-spaces").innerText = data.Spaces;
+                        console.log("⚡ Live Dashboard Update:", data);
+                    }
+                } catch (error) {
+                    console.log("Message received:", event.data);
+                }
+            };
+
+            socket.onclose = function() {
+                console.log("🔌 WebSocket disconnected.");
+            };
+        });
+    </script>
+
+
 </head>
 <body>
 
@@ -232,8 +265,27 @@
             <!-- ROW 1: DUMMY METRICS CARDS -->
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <div class="metric-label">Cars Parked</div>
-                    <div class="metric-value">142</div>
+                    <div class="metric-label">Parking Location </div>
+                    <div class="metric-value"> {{.TotalParking}} </div>
+                    <div class="metric-change">↑ 12% vs yesterday</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Active Attendants</div>
+                    <div class="metric-value">18</div>
+                    <div class="metric-change" style="color: var(--text-muted);">Stable deployment</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Today's Revenue</div>
+                    <div class="metric-value">KES 24,500</div>
+                    <div class="metric-change">↑ 8% this hour</div>
+                </div>
+            </div>
+
+
+                <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">TOTAL PARKING SPACES</div>
+                    <div class="metric-value"> {{.Spaces}}</div>
                     <div class="metric-change">↑ 12% vs yesterday</div>
                 </div>
                 <div class="metric-card">
