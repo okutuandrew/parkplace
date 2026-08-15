@@ -34,7 +34,7 @@ var DummyParking workerupdates.Updates
 	lngMin := 34.77502 // c
 	lngMax := 34.7502 // d
 
-colorOptions := []string{"#49d611ff", "#FABB05" , "#34A853" }
+colorOptions := []string{"#e7b317ff", "#be1a0bff" , "#116327ff" }
 randomIndex := rand.Intn(len(colorOptions))
 
 spacesOptions := []int{1,2,3,4,5,6}

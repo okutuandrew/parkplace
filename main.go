@@ -60,7 +60,7 @@ func main() {
             
 
             // Pause the execution of this specific loop for exactly 10 seconds
-            time.Sleep(5 * time.Second)
+            time.Sleep(3 * time.Second)
         }
     }() 
 
@@ -72,7 +72,7 @@ func main() {
             
 
             // Pause the execution of this specific loop for exactly 10 seconds
-            time.Sleep(20 * time.Second)
+            time.Sleep(9 * time.Second)
         }
     }() 
 
