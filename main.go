@@ -57,10 +57,27 @@ func main() {
             // Call your bot function to generate a random location
             bots.NewParkingSpace()
 
+            
+
             // Pause the execution of this specific loop for exactly 10 seconds
-            time.Sleep(10 * time.Second)
+            time.Sleep(5 * time.Second)
         }
     }() 
+
+
+       go func() {
+        for {
+            // Call your bot function to generate a random location
+            bots.DeleteRandomEntry()
+            
+
+            // Pause the execution of this specific loop for exactly 10 seconds
+            time.Sleep(20 * time.Second)
+        }
+    }() 
+
+
+     
 
 
 
