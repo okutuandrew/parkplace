@@ -12,6 +12,8 @@ import (
      "parkplace/Middlewares"
      "parkplace/WbSocks"
      "parkplace/static"
+    "parkplace/bots"
+    "time"
 
 )
 
@@ -49,7 +51,20 @@ type FormData struct {
 func main() {
 
 
-     
+
+    go func() {
+        for {
+            // Call your bot function to generate a random location
+            bots.NewParkingSpace()
+
+            // Pause the execution of this specific loop for exactly 10 seconds
+            time.Sleep(10 * time.Second)
+        }
+    }() 
+
+
+
+    bots.NewParkingSpace()
     static.ParkingData(); 
     logs.SysLogs()
     log.Println(workerupdates.Workerdata())

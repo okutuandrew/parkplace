@@ -1420,3 +1420,117 @@ created by net/http.(*Server).Serve in goroutine 1
 2026/08/14 19:24:35 ⚡ Live metrics pushed automatically to dashboard!
 2026/08/14 19:31:17 TEST
 2026/08/14 19:31:17 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 12:33:11 TEST
+2026/08/15 12:33:11 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 13:02:18 TEST
+2026/08/15 13:02:18 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 13:02:18 listen tcp :8080: bind: address already in use
+2026/08/15 13:03:28 TEST
+2026/08/15 13:03:28 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 13:42:32 TEST
+2026/08/15 13:42:32 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 13:45:22 TEST
+2026/08/15 13:45:22 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 13:52:10 TEST
+2026/08/15 13:52:10 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 13:52:10 listen tcp :8080: bind: address already in use
+2026/08/15 13:52:45 TEST
+2026/08/15 13:52:45 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 13:52:45 listen tcp :8080: bind: address already in use
+2026/08/15 13:53:28 TEST
+2026/08/15 13:53:28 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 13:53:38 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 13:53:42 Dashboard login attempt: {muleli.haddassah@gmail.com  8 9}
+2026/08/15 13:53:42 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 13:53:42 Client connected
+2026/08/15 13:53:42 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/15 13:53:45 Disconnected
+2026/08/15 13:53:45 ✅ User accessed F-MAP page
+2026/08/15 13:53:46 Client connected
+2026/08/15 13:53:46 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/15 13:53:46 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 13:53:46 http: superfluous response.WriteHeader call from main.LandingPage (main.go:106)
+2026/08/15 13:53:46 Received: {"type":"connected","role":"driver"}
+2026/08/15 13:54:52 TEST
+2026/08/15 13:54:52 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 13:54:53 Client connected
+2026/08/15 13:54:53 Received: {"type":"connected","role":"driver"}
+2026/08/15 13:54:53 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/15 13:54:59 Disconnected
+2026/08/15 13:54:59 ✅ User accessed F-MAP page
+2026/08/15 13:54:59 Client connected
+2026/08/15 13:54:59 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/15 13:54:59 Received: {"type":"connected","role":"driver"}
+2026/08/15 13:56:11 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/15 13:56:11 WriteJSON failed, closing stream: websocket: close sent
+2026/08/15 13:56:13 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/15 13:56:14 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/15 13:56:28 TEST
+2026/08/15 13:56:28 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 13:56:29 Client connected
+2026/08/15 13:56:29 Received: {"type":"connected","role":"driver"}
+2026/08/15 13:56:29 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/15 13:56:34 Disconnected
+2026/08/15 13:56:34 ✅ User accessed F-MAP page
+2026/08/15 13:56:34 Client connected
+2026/08/15 13:56:34 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/15 13:56:35 Received: {"type":"connected","role":"driver"}
+2026/08/15 13:56:35 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 13:56:35 http: superfluous response.WriteHeader call from main.LandingPage (main.go:106)
+2026/08/15 13:56:50 Disconnected
+2026/08/15 13:56:50 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 13:56:50 http: superfluous response.WriteHeader call from main.LandingPage (main.go:106)
+2026/08/15 13:56:50 Client connected
+2026/08/15 13:56:50 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/15 13:56:54 Disconnected
+2026/08/15 13:56:54 Dashboard login attempt: {muleli.haddassah@gmail.com  4 5}
+2026/08/15 13:56:54 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 13:56:54 Client connected
+2026/08/15 13:56:54 ⚡ Live metrics pushed automatically to dashboard!
+2026/08/15 13:57:03 Disconnected
+2026/08/15 13:57:03 ✅ User accessed W-MAP page
+2026/08/15 13:57:03 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 13:57:03 http: superfluous response.WriteHeader call from main.LandingPage (main.go:106)
+2026/08/15 13:58:48 WriteJSON failed, closing stream: websocket: close sent
+2026/08/15 13:58:48 WriteJSON failed, closing stream: websocket: close sent
+2026/08/15 13:58:48 WriteJSON failed, closing stream: websocket: close sent
+2026/08/15 13:58:48 WriteJSON failed, closing stream: websocket: close sent
+2026/08/15 13:58:57 TEST
+2026/08/15 13:58:57 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 13:59:33 TEST
+2026/08/15 13:59:33 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"color","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 14:01:36 TEST
+2026/08/15 14:01:36 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"#d32f2f","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 14:01:45 ✅ User accessed W-MAP page
+2026/08/15 14:01:45 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 14:01:45 http: superfluous response.WriteHeader call from main.LandingPage (main.go:106)
+2026/08/15 14:02:04 TEST
+2026/08/15 14:02:04 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"#d32f2f","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 14:04:08 TEST
+2026/08/15 14:04:08 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"#d32f2f","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 14:04:13 ✅ User accessed W-MAP page
+2026/08/15 14:04:13 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 14:04:13 http: superfluous response.WriteHeader call from main.LandingPage (main.go:106)
+2026/08/15 14:04:27 TEST
+2026/08/15 14:04:27 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"#d32f2f","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 14:04:43 TEST
+2026/08/15 14:04:43 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"#d32f2f","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 14:07:20 TEST
+2026/08/15 14:07:20 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"#d32f2f","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 14:07:27 ✅ User accessed W-MAP page
+2026/08/15 14:07:28 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 14:12:40 TEST
+2026/08/15 14:12:40 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"#d32f2f","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 14:12:47 ✅ User accessed W-MAP page
+2026/08/15 14:12:47 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 14:12:47 http: superfluous response.WriteHeader call from main.LandingPage (main.go:120)
+2026/08/15 14:16:10 TEST
+2026/08/15 14:16:10 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"#d32f2f","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 14:16:14 ✅ User accessed W-MAP page
+2026/08/15 14:16:14 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 14:16:14 http: superfluous response.WriteHeader call from main.LandingPage (main.go:120)
+2026/08/15 14:19:51 TEST
+2026/08/15 14:19:51 {"lat":-0.06575,"lng":34.77502,"title":"Entrance A","color":"#d32f2f","content":"🚗 Available: 5 spots\n🅿️ Near main gate","spaces":0}
+2026/08/15 14:19:55 ✅ User accessed W-MAP page
+2026/08/15 14:19:56 ✅ User accessed the main Landing Login Page Portal
+2026/08/15 14:19:56 http: superfluous response.WriteHeader call from main.LandingPage (main.go:120)

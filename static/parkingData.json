@@ -1,90 +1,58 @@
 [
   {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance ANDREW",
-    "color": "#d32f2f",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate",
-    "spaces": 3
+    "lat": -0.07728596651009922,
+    "lng": 34.76456846780775,
+    "title": "TESTBOT",
+    "color": "#ea4335",
+    "content": "🚗 Available: 4 spots\n🅿️ Near main gate",
+    "spaces": 4
   },
   {
-    "lat": -0.065274,
-    "lng": 34.777296,
-    "title": "",
-    "color": "#ea4335",
-    "content": "xxx",
+    "lat": -0.08368913678587317,
+    "lng": 34.771268595344736,
+    "title": "TESTBOT",
+    "color": "#FABB05",
+    "content": "🚗 Available: 4 spots\n🅿️ Near main gate",
     "spaces": 4
   },
   {
     "lat": -0.06575,
     "lng": 34.77502,
     "title": "Entrance A",
-    "color": "color",
+    "color": "#d32f2f",
     "content": "🚗 Available: 5 spots\n🅿️ Near main gate",
     "spaces": 0
   },
   {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate",
-    "spaces": 0
+    "lat": -0.08095233188768304,
+    "lng": 34.76884148048239,
+    "title": "TESTBOT",
+    "color": "#ea4335",
+    "content": "🚗 Available: 4 spots\n🅿️ Near main gate",
+    "spaces": 4
   },
   {
-    "lat": -0.066991,
-    "lng": 34.775216,
-    "title": "",
+    "lat": -0.06870022096053259,
+    "lng": 34.76933677259844,
+    "title": "TESTBOT",
     "color": "#FABB05",
-    "content": "x",
-    "spaces": 10
+    "content": "🚗 Available: 6 spots\n🅿️ Near main gate",
+    "spaces": 6
   },
   {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate",
-    "spaces": 0
+    "lat": -0.0773504222729674,
+    "lng": 34.754095439938354,
+    "title": "TESTBOT",
+    "color": "#ea4335",
+    "content": "🚗 Available: 4 spots\n🅿️ Near main gate",
+    "spaces": 4
   },
   {
-    "lat": -0.063965,
-    "lng": 34.774572,
-    "title": "",
+    "lat": -0.08493639405001834,
+    "lng": 34.7524383773364,
+    "title": "TESTBOT",
     "color": "#FABB05",
-    "content": "XXX",
-    "spaces": 2
-  },
-  {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "color",
     "content": "🚗 Available: 5 spots\n🅿️ Near main gate",
-    "spaces": 0
-  },
-  {
-    "lat": -0.063965,
-    "lng": 34.774572,
-    "title": "",
-    "color": "#FABB05",
-    "content": "XXX",
-    "spaces": 2
-  },
-  {
-    "lat": -0.063386,
-    "lng": 34.776867,
-    "title": "",
-    "color": "#34A853",
-    "content": "xxx",
     "spaces": 5
-  },
-  {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "color",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate",
-    "spaces": 0
   }
 ]
