@@ -207,6 +207,89 @@
             color: #94a3b8; 
         }
     </style>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+<script>
+
+
+    $(document).ready(function() {
+    $('#btn-mpesa').on('click', function(e) {
+        e.preventDefault(); // Extra safety — stops any form submission
+
+        var phone = $('input[name="phone"]').val().trim();
+        var plate = $('input[name="plate"]').val().trim();
+        var $status = $('#mpesa-status');
+
+        // Validation
+        if (!phone) {
+            $status.text('Please enter your phone number first.').css('color', 'red');
+            return;
+        }
+
+        $status.text('Sending M-Pesa prompt...').css('color', '#666');
+
+        $.ajax({
+            url: '/MpesaPayment',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                phone: phone,
+                plate: plate,
+                amount: '1'
+            }),
+            success: function(response) {
+                $status.text('M-Pesa prompt sent! Check your phone and enter the code below.').css('color', 'green');
+            },
+            error: function(xhr) {
+                var msg = 'Failed to send prompt.';
+                if (xhr.responseJSON && xhr.responseJSON.error) {
+                    msg = xhr.responseJSON.error;
+                }
+                $status.text('Error: ' + msg).css('color', 'red');
+            }
+        });
+    });
+});
+
+
+$('#btn-mpesa').on('click', function(e) {
+    e.preventDefault();
+    var $btn = $(this);
+    var $status = $('#mpesa-status');
+
+    if ($btn.prop('disabled')) return; // Already processing
+
+    var phone = $('input[name="phone"]').val().trim();
+    if (!phone) {
+        $status.text('Please enter your phone number first.').css('color', 'red');
+        return;
+    }
+
+    $btn.prop('disabled', true).text('Processing...');
+    $status.text('Sending M-Pesa prompt...').css('color', '#666');
+
+    $.ajax({
+        url: '/MpesaPayment',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ phone: phone, plate: $('input[name="plate"]').val().trim(), amount: '1' }),
+        success: function(response) {
+            $status.text('M-Pesa prompt sent! Check your phone.').css('color', 'green');
+        },
+        error: function(xhr) {
+            var msg = xhr.responseJSON?.error || 'Failed to send prompt.';
+            $status.text('Error: ' + msg).css('color', 'red');
+        },
+        complete: function() {
+            $btn.prop('disabled', false).text('Pay via M-Pesa');
+        }
+    });
+});
+
+</script>
 </head>
 <body>
 
@@ -239,7 +322,6 @@
                            required 
                            minlength="6" 
                            maxlength="8" 
-                           pattern="^[A-Z]{3}\s?\d{3}[A-Z]{1}$|^[A-Z0-9\-]{6,8}$" 
                            autocapitalize="characters"
                            placeholder="e.g., KBC 123X" 
                            class="input-field uppercase-field">
@@ -265,11 +347,13 @@
                            required 
                            minlength="4"
                            maxlength="12"
-                           pattern="^[A-Z0-9]{4,12}$"
                            autocapitalize="characters"
                            placeholder="Enter M-Pesa / Card reference" 
                            class="input-field uppercase-field">
                 </div>
+
+                <div class="input-group"> <button type="button" id="btn-mpesa" class="btn-submit" style="background-color: #4CAF50; margin-bottom: 10px;"> Pay via M-Pesa </button> <small id="mpesa-status" style="color: #666; display: block; margin-top: 5px;"></small> </div>
+
 
                 <button type="submit" class="btn-submit">Enter Driver Portal</button>
             </form>

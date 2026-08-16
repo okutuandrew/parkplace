@@ -14,6 +14,8 @@ import (
      "parkplace/static"
     "parkplace/bots"
     "time"
+    "parkplace/mpesatools"
+     "github.com/joho/godotenv"
 
 )
 
@@ -46,11 +48,19 @@ type FormData struct {
     Spaces   int
 }
 
+type PaymentDetails struct {
+    CarReg string 
+    PhoneNumber string 
+}
+
 
 
 func main() {
-
-
+    
+  err := godotenv.Load()
+    if err != nil {
+        log.Println("No .env file found, using system env vars")
+    }
 
     go func() {
         for {
@@ -114,6 +124,7 @@ func main() {
 	http.HandleFunc("/DRIVERLOGGIN",DriverLoggin)
 	http.HandleFunc("/WORKERLOGGIN",WorkerLoggin)
    http.HandleFunc("/ws", checkCookie(WbSocks.DriverMapWbScock))
+   http.Handle("/MpesaPayment",Middlewares.SessionTracker(http.HandlerFunc(   checkCookie(MpesaPaymentHandler ) )))
 
 
     http.HandleFunc("/DASHBOARD", checkCookie(Dashboard))
@@ -156,6 +167,30 @@ func LandingPage(w http.ResponseWriter, r *http.Request) {
 }
 
 
+
+
+func MpesaPaymentHandler(w http.ResponseWriter, r *http.Request) {
+   
+   var  PayReff PaymentDetails; 
+   PayReff.CarReg =  r.FormValue("plate")   
+   
+     PayReff.PhoneNumber =  r.FormValue("phone")  
+   
+
+        //////////////////////
+    token, err := mpesatools.GetAccessToken(PayReff.CarReg, PayReff.PhoneNumber)
+	if err != nil {
+		fmt.Println("Token error:", err)
+		return
+	}
+
+	fmt.Println("Access Token:", token[:20]+"...")
+	mpesatools.StkPush(token)
+
+
+    //////////////////////
+
+}
 
 func Dashboard(w http.ResponseWriter, r *http.Request) {
 
@@ -210,6 +245,7 @@ func WorkerMapHandler(w http.ResponseWriter, r *http.Request) {
 
 
 func FrontMapHandler(w http.ResponseWriter, r *http.Request) {
+
     data := PageData{Street: "KIMATHI STREET"}
 
     tmpl, err := template.ParseFiles("maps/map.html")
