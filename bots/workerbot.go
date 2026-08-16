@@ -117,4 +117,21 @@ func DeleteRandomEntry() {
 		deletedEntry.Title, len(entries))
 }
 
+func ResetParkingData() {
+	fileMutex.Lock()
+	defer fileMutex.Unlock()
+
+	filePath := "static/parkingData.json"
+
+	if err := os.Remove(filePath); err != nil && !os.IsNotExist(err) {
+		fmt.Println("failed to remove file:")
+	}
+
+	_, err := os.Create(filePath)
+	if err != nil {
+		fmt.Println("failed to create file:")
+	}
+	
+}
+
 

@@ -77,6 +77,23 @@ func main() {
     }() 
 
 
+
+
+       go func() {
+        for {
+            // Call your bot function to generate a random location
+            bots.ResetParkingData()
+            
+
+            // Pause the execution of this specific loop for exactly 10 seconds
+            time.Sleep(180 * time.Second)
+        }
+    }() 
+
+
+    
+
+
      
 
 
