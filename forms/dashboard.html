@@ -211,8 +211,7 @@
 
                 try {
                     const data = JSON.parse(event.data);
-                    
-                    // Now these elements are fully loaded, so JavaScript can find them!
+
                     if (data.Total !== undefined && data.Spaces !== undefined) {
                         document.getElementById("live-total").innerText = data.Total;
                         document.getElementById("live-spaces").innerText = data.Spaces;
@@ -229,7 +228,6 @@
         });
     </script>
 
-
 </head>
 <body>
 
@@ -240,10 +238,10 @@
             Park<span>Place</span>
         </div>
         <ul class="sidebar-menu">
-            <li class="sidebar-menu menu-item active"><a href="#">Overview</a></li>
-            <li class="sidebar-menu menu-item"><a href="/F-MAP">Driver Map</a></li>
-            <li class="sidebar-menu menu-item"><a href="/W-MAP">Worker Terminal</a></li>
-            <li class="sidebar-menu menu-item"><a href="#">System Audits</a></li>
+            <li class="sidebar-menu menu-item active" data-target="overview"><a href="#">Overview</a></li>
+            <li class="sidebar-menu menu-item" data-target="iframe" data-url="/F-MAP"><a href="#">Driver Map</a></li>
+            <li class="sidebar-menu menu-item" data-target="iframe" data-url="/W-MAP"><a href="#">Worker Terminal</a></li>
+            <li class="sidebar-menu menu-item" data-target="overview"><a href="#">System Audits</a></li>
         </ul>
     </div>
 
@@ -261,76 +259,116 @@
 
         <!-- Dashboard Working Content Sandbox -->
         <div class="content-body">
-            
-            <!-- ROW 1: DUMMY METRICS CARDS -->
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-label">Parking Location </div>
-                    <div class="metric-value"> {{.TotalParking}} </div>
-                    <div class="metric-change">↑ 12% vs yesterday</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">Active Attendants</div>
-                    <div class="metric-value">18</div>
-                    <div class="metric-change" style="color: var(--text-muted);">Stable deployment</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">Today's Revenue</div>
-                    <div class="metric-value">KES 24,500</div>
-                    <div class="metric-change">↑ 8% this hour</div>
-                </div>
-            </div>
 
+            <div id="overview-content">
 
+                <!-- ROW 1: DUMMY METRICS CARDS -->
                 <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-label">TOTAL PARKING SPACES</div>
-                    <div class="metric-value"> {{.Spaces}}</div>
-                    <div class="metric-change">↑ 12% vs yesterday</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">Active Attendants</div>
-                    <div class="metric-value">18</div>
-                    <div class="metric-change" style="color: var(--text-muted);">Stable deployment</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">Today's Revenue</div>
-                    <div class="metric-value">KES 24,500</div>
-                    <div class="metric-change">↑ 8% this hour</div>
-                </div>
-            </div>
-
-            <!-- ROW 2: GRAPHS & AUDIT LOGGER LAYOUT -->
-            <div class="analytics-section">
-                
-                <!-- Graph Chart Module Block -->
-                <div class="chart-card">
-                    <div class="card-title">Hourly Space Occupancy Metrics</div>
-                    <div class="chart-container">
-                        <!-- Instant zero-dependency native SVG Vector Graph -->
-                        <svg viewBox="0 0 500 200" style="width:100%; height:100%;">
-                            <!-- Grid background references -->
-                            <line x1="0" y1="50" x2="500" y2="50" stroke="#f1f5f9" stroke-width="1" />
-                            <line x1="0" y1="100" x2="500" y2="100" stroke="#f1f5f9" stroke-width="1" />
-                            <line x1="0" y1="150" x2="500" y2="150" stroke="#f1f5f9" stroke-width="1" />
-                            
-                            <!-- Graph line path filled with dummy historical vectors -->
-                            <path d="M 0 160 Q 100 120 200 140 T 400 60 T 500 40" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"/>
-                            <path d="M 0 160 Q 100 120 200 140 T 400 60 T 500 40 L 500 200 L 0 200 Z" fill="linear-gradient(to bottom, rgba(14,165,233,0.2), transparent)" opacity="0.1"/>
-                            
-                            <!-- Tracking nodes -->
-                            <circle cx="200" cy="140" r="6" fill="#0ea5e9" />
-                            <circle cx="400" cy="60" r="6" fill="#0ea5e9" />
-                        </svg>
+                    <div class="metric-card">
+                        <div class="metric-label">Parking Location </div>
+                        <div class="metric-value" id="live-total"> {{.TotalParking}} </div>
+                        <div class="metric-change">↑ 12% vs yesterday</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Active Attendants</div>
+                        <div class="metric-value">18</div>
+                        <div class="metric-change" style="color: var(--text-muted);">Stable deployment</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Today's Revenue</div>
+                        <div class="metric-value">KES 24,500</div>
+                        <div class="metric-change">↑ 8% this hour</div>
                     </div>
                 </div>
 
-                <!-- Audit Log Ledger Box -->
-                <div class="audit-card">
-                    <div class="card-title">Live System Audit Ledger</div>
-                    <div class="audit-list">
-                        <div class="audit-item">
-                            <div class="audit-meta">
-                                <span class="audit-user">Attendant: John_Doe</span>
-                                <span>12:04 PM</span>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">TOTAL PARKING SPACES</div>
+                        <div class="metric-value" id="live-spaces"> {{.Spaces}}</div>
+                        <div class="metric-change">↑ 12% vs yesterday</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Active Attendants</div>
+                        <div class="metric-value">{{.Attendants}}</div>
+                        <div class="metric-change" style="color: var(--text-muted);">Stable deployment</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Today's Revenue</div>
+                        <div class="metric-value">KES 24,500</div>
+                        <div class="metric-change">↑ 8% this hour</div>
+                    </div>
+                </div>
+
+                <!-- ROW 2: GRAPHS & AUDIT LOGGER LAYOUT -->
+                <div class="analytics-section">
+
+                    <!-- Graph Chart Module Block -->
+                    <div class="chart-card">
+                        <div class="card-title">Hourly Space Occupancy Metrics</div>
+                        <div class="chart-container">
+                            <svg viewBox="0 0 500 200" style="width:100%; height:100%;">
+                                <line x1="0" y1="50" x2="500" y2="50" stroke="#f1f5f9" stroke-width="1" />
+                                <line x1="0" y1="100" x2="500" y2="100" stroke="#f1f5f9" stroke-width="1" />
+                                <line x1="0" y1="150" x2="500" y2="150" stroke="#f1f5f9" stroke-width="1" />
+
+                                <path d="M 0 160 Q 100 120 200 140 T 400 60 T 500 40" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"/>
+                                <path d="M 0 160 Q 100 120 200 140 T 400 60 T 500 40 L 500 200 L 0 200 Z" fill="linear-gradient(to bottom, rgba(14,165,233,0.2), transparent)" opacity="0.1"/>
+
+                                <circle cx="200" cy="140" r="6" fill="#0ea5e9" />
+                                <circle cx="400" cy="60" r="6" fill="#0ea5e9" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Audit Log Ledger Box -->
+                    <div class="audit-card">
+                        <div class="card-title">Live System Audit Ledger</div>
+                        <div class="audit-list">
+                            <div class="audit-item">
+                                <div class="audit-meta">
+                                    <span class="audit-user">Attendant: John_Doe</span>
+                                    <span>12:04 PM</span>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+
+                </div> <!-- closes analytics-section -->
+
+            </div> <!-- closes overview-content -->
+
+            <iframe id="content-frame" style="width:100%; height:calc(100vh - 130px); border:none; display:none; border-radius: 12px;"></iframe>
+
+        </div> <!-- closes content-body -->
+
+    </div> <!-- closes main-wrapper -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuItems = document.querySelectorAll(".sidebar-menu.menu-item");
+            const overviewContent = document.getElementById("overview-content");
+            const iframe = document.getElementById("content-frame");
+
+            menuItems.forEach(item => {
+                item.querySelector("a").addEventListener("click", function(e) {
+                    e.preventDefault();
+
+                    menuItems.forEach(i => i.classList.remove("active"));
+                    item.classList.add("active");
+
+                    if (item.dataset.target === "iframe") {
+                        overviewContent.style.display = "none";
+                        iframe.style.display = "block";
+                        iframe.src = item.dataset.url;
+                    } else {
+                        iframe.style.display = "none";
+                        iframe.src = "";
+                        overviewContent.style.display = "block";
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

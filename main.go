@@ -46,6 +46,8 @@ type FormData struct {
     Password string
     TotalParking int
     Spaces   int
+    Attendants int 
+
 }
 
 type PaymentDetails struct {
@@ -201,6 +203,8 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
 	result := static.ParkingData()
 	data.TotalParking = result.Total
     data.Spaces   = result.Spaces
+    data.Attendants = result.Attendants
+    
 
 
      if r.Method == "POST" {
