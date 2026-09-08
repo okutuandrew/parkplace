@@ -57,12 +57,12 @@ html, body { height: 100%; margin:0; padding:0; }
   ℹ️
 </button>
 
-<!-- Modified InfoBox (starts HIDDEN) -->
+<button id="toggleNewForm" class="fixed top-24 right-5 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-2xl z-[10001] w-14 h-14 flex items-center justify-center text-xl transition-all duration-300 hover:scale-110 active:scale-95">
+  ➕
+</button>
 
-
-
-<!-- ✅ REPLACE with this toggleable version -->
-<form id="infoBox" class="fixed top-5 right-5 bg-white/95 p-4 rounded-xl shadow-2xl z-[9999] w-72 max-h-96 overflow-y-auto hidden transition-all duration-300 transform translate-x-full" method="POST"  action="PARKINGUPDATES">
+<!-- ✅ InfoBox (starts HIDDEN) -->
+<form id="infoBox" class="fixed top-5 right-5 bg-white/95 p-4 rounded-xl shadow-2xl z-[9999] w-72 max-h-96 overflow-y-auto hidden transition-all duration-300 transform translate-x-full" method="POST" action="PARKINGUPDATES">
   <h4 class="font-bold text-xl mb-2 text-blue-600">📌 Map Info</h4>
 
   <div class="flex gap-2 mt-2">
@@ -85,7 +85,6 @@ html, body { height: 100%; margin:0; padding:0; }
     <input type="text" id="longitude" class="form-control flex-1" placeholder="Longitude" name ="longitude"  required >
   </div>
 
-  <!-- Rest of your form stays EXACTLY the same -->
   <div class="flex gap-2 mt-2">
     🚗<input  type="number" min="1" max="100" id="spaces"  name="spaces" class="form-control flex-1" placeholder="SPACES" required >
   </div>
@@ -115,7 +114,7 @@ html, body { height: 100%; margin:0; padding:0; }
 </div>
 
   <div class="flex gap-2 mt-2">
-    💬 <textarea    name ="notes" id="notes" rows="3" class="form-control w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 resize-vertical focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400" placeholder="Enter parking spaces or notes..."></textarea required >
+    💬 <textarea    name ="notes" id="notes" rows="3" class="form-control w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 resize-vertical focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 hover:border-gray-400" placeholder="Enter parking spaces or notes..."></textarea>
   </div>
 
   <div class="flex gap-2 mt-4 pt-4 border-t border-gray-200">
@@ -124,9 +123,25 @@ html, body { height: 100%; margin:0; padding:0; }
   </div>
 </form>
 
+<!-- New Form (starts HIDDEN, empty — populate yourself) -->
+<form id="newForm" class="fixed top-24 right-5 bg-white/95 p-4 rounded-xl shadow-2xl z-[9999] w-72 max-h-96 overflow-y-auto hidden transition-all duration-300 transform translate-x-full">
+ <h1>PLATES MATCHING</h1>
+
+  <div class="flex gap-2 mt-2">
+    🚗<input  type="text" id="maskednumberplate"  name="spaces" class="form-control flex-1" placeholder="REG NUMBER" required >
+  </div>
+  <div class="flex gap-2 mt-2">
+    🧭 <input  type="text" id="currentlong" readonly  name="longittude" class="form-control flex-1" placeholder="CURRENT LONG" required >
+  </div>
+  <div class="flex gap-2 mt-2">
+    🧭 <input  type="text" id="currentlatt"  readonly  name="lattitude" class="form-control flex-1" placeholder="CURRENT" required >
+  </div>
+</form>
+
 
   <!-- Countdown -->
   <div id="countdown">5</div>
+
 </div>
 
 
@@ -300,6 +315,9 @@ function updateUserLocation(lat, lng) {
       weight: 3, opacity: 1, fillOpacity: 1
     }).addTo(map).bindPopup("📍 You are here").openPopup();
   }
+
+  document.getElementById("currentlatt").value = lat.toFixed(6);
+  document.getElementById("currentlong").value = lng.toFixed(6);
 }
 
 document.getElementById("getLocationBtn").addEventListener("click", () => {
@@ -322,16 +340,9 @@ if (navigator.geolocation) {
 // CLICK & ROUTING (unchanged)
 // =======================
 
-
-// =======================
-// CLICK & ROUTING (unchanged)
-// =======================
-
 map.on("click", e => {
   const lat = e.latlng.lat;
   const lng = e.latlng.lng;
-
-  // ... routing logic ...
 
   // ✅ THIS ALREADY WORKS - loads coords on CLICK only
   $("#lattitude").val(lat.toFixed(6));
@@ -343,15 +354,13 @@ setTimeout(() => map.invalidateSize(true), 500);
 setTimeout(() => map.invalidateSize(true), 1500);
 
 
+///////////////TOGGLE BUTTONS (both at the bottom, after all HTML exists)
 
-
-///////////////TOGGLE BUTTON 
-
-// Toggle Form Button
+// Toggle Form Button (Map Info)
 document.getElementById('toggleForm').addEventListener('click', function() {
   const infoBox = document.getElementById('infoBox');
   const toggleBtn = document.getElementById('toggleForm');
-  
+
   if (infoBox.classList.contains('hidden')) {
     // Show form
     infoBox.classList.remove('hidden', 'translate-x-full');
@@ -368,7 +377,28 @@ document.getElementById('toggleForm').addEventListener('click', function() {
   }
 });
 
-</script>  
+// Toggle New Form Button
+document.getElementById('toggleNewForm').addEventListener('click', function() {
+  const newForm = document.getElementById('newForm');
+  const toggleBtn = document.getElementById('toggleNewForm');
+
+  if (newForm.classList.contains('hidden')) {
+    // Show form
+    newForm.classList.remove('hidden', 'translate-x-full');
+    newForm.classList.add('translate-x-0');
+    toggleBtn.innerHTML = '❌';
+    toggleBtn.classList.add('bg-red-600', 'hover:bg-red-700');
+  } else {
+    // Hide form
+    newForm.classList.add('translate-x-full');
+    setTimeout(() => newForm.classList.add('hidden'), 300);
+    toggleBtn.innerHTML = '➕';
+    toggleBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
+    toggleBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+  }
+});
+
+</script>
 
 
 </body>
