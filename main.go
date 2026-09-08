@@ -38,6 +38,7 @@ func checkCookie(next http.HandlerFunc) http.HandlerFunc {
 
 type PageData struct {
     Street string
+     PlateOptions template.HTML
 }
 
 
@@ -113,6 +114,7 @@ func main() {
 
     bots.NewParkingSpace()
     static.ParkingData(); 
+    static.GenerateOptionsHTML();
     logs.SysLogs()
     log.Println(workerupdates.Workerdata())
     // Static files handler - MUST come BEFORE the specific routes
@@ -232,7 +234,7 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
     }
 
     // 2. Fix your log to accurately match the action
-    log.Println("✅ User accessed the main Landing Login Page Portal")
+    log.Println(" User accessed the main Landing Login Page Portal")
 
     // 3. CRUCIAL: Execute the template to send the HTML down to the browser window
     err = tmpl.Execute(w, data) 
@@ -243,22 +245,30 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
 
 
 
-func WorkerMapHandler(w http.ResponseWriter, r *http.Request) {
-    data := PageData{Street: "KIMATHI STREET"}
-
-    tmpl, err := template.ParseFiles("maps/workermap.html")
-    if err != nil {
-        http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
-        return
-    }
-
-    log.Println("✅ User accessed W-MAP page")
-    err = tmpl.Execute(w, data)
-    if err != nil {
-        http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
-    }
-}
-
+ func WorkerMapHandler(w http.ResponseWriter, r *http.Request) {
+	optionsHTML, err := static.GenerateOptionsHTML()
+	if err != nil {
+		http.Error(w, "Plate options error: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+ 
+	data := PageData{
+		Street:       "KIMATHI STREET",
+		PlateOptions: template.HTML(optionsHTML),
+	}
+ 
+	tmpl, err := template.ParseFiles("maps/workermap.html")
+	if err != nil {
+		http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+ 
+	log.Println(" User accessed W-MAP page")
+	err = tmpl.Execute(w, data)
+	if err != nil {
+		http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
+	}
+} 
 
 
 func FrontMapHandler(w http.ResponseWriter, r *http.Request) {
