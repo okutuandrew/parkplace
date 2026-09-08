@@ -16,6 +16,7 @@ import (
     "time"
     "parkplace/mpesatools"
      "github.com/joho/godotenv"
+     "strings"
 
 )
 
@@ -117,6 +118,7 @@ func main() {
     // Static files handler - MUST come BEFORE the specific routes
 
     http.HandleFunc("/",LandingPage)
+
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
     http.Handle("/F-MAP",Middlewares.SessionTracker(http.HandlerFunc(   checkCookie(FrontMapHandler ) )))
     // Your page route
@@ -127,7 +129,7 @@ func main() {
 	http.HandleFunc("/WORKERLOGGIN",WorkerLoggin)
    http.HandleFunc("/ws", checkCookie(WbSocks.DriverMapWbScock))
    http.Handle("/MpesaPayment",Middlewares.SessionTracker(http.HandlerFunc(   checkCookie(MpesaPaymentHandler ) )))
-
+    http.HandleFunc("/logout/", logoutHandler)
 
     http.HandleFunc("/DASHBOARD", checkCookie(Dashboard))
     // Optional route
@@ -141,6 +143,17 @@ func main() {
   
 }
 
+
+
+func logoutHandler(w http.ResponseWriter, r *http.Request) {
+    username := strings.TrimPrefix(r.URL.Path, "/logout/")
+
+    fmt.Println("Logging out:", username)
+
+    // Perform logout logic here
+
+    http.Redirect(w, r, "/login", http.StatusSeeOther)
+}
 
 func LandingPage(w http.ResponseWriter, r *http.Request) {
     
