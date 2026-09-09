@@ -157,25 +157,8 @@ html, body { height: 100%; margin:0; padding:0; }
 
 
 <script>
- let map = L.map('map');
-
-
-map.locate({ 
-    setView: true, 
-    maxZoom: 27,
-    watch: false  
-});
-
-
-map.on('locationfound', function(e) {
-   
-    if (e.latlng.lat !== 0 && e.latlng.lng !== 0) {
-        L.marker(e.latlng).addTo(map).bindPopup("Your Location").openPopup();
-    }
-});
   
-
-
+let map = L.map('map');
 let userPos = null;
 let userMarker = null;
 let routeLine = null;
@@ -316,19 +299,52 @@ setInterval(() => {
 // =======================
 // USER LOCATION (unchanged)
 // =======================
-function updateUserLocation(lat, lng) {
-  userPos = { lat, lng };
-  if (userMarker) userMarker.setLatLng([lat, lng]);
-  else {
-    userMarker = L.circleMarker([lat, lng], {
-      radius: 10, fillColor: "#007bff", color: "#ffffff",
-      weight: 3, opacity: 1, fillOpacity: 1
-    }).addTo(map).bindPopup("📍 You are here").openPopup();
-  }
 
-  document.getElementById("currentlatt").value = lat.toFixed(6);
-  document.getElementById("currentlong").value = lng.toFixed(6);
+function updateUserLocation(lat, lng) {
+    userPos = { lat, lng };
+
+    if (userMarker) {
+        userMarker.setLatLng([lat, lng]);
+    } else {
+        userMarker = L.circleMarker([lat, lng], {
+            radius: 10,
+            fillColor: "#007bff",
+            color: "#ffffff",
+            weight: 3,
+            opacity: 1,
+            fillOpacity: 1
+        }).addTo(map).bindPopup("📍 You are here");
+    }
+
+    document.getElementById("currentlatt").value = lat.toFixed(6);
+    document.getElementById("currentlong").value = lng.toFixed(6);
+
+    console.log("📍 Location:", lat, lng);
 }
+
+function locationError(error) {
+    console.error("GPS error:", error.code, error.message);
+}
+
+if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(
+        position => {
+            updateUserLocation(
+                position.coords.latitude,
+                position.coords.longitude
+            );
+        },
+        locationError,
+        {
+            enableHighAccuracy: true,
+            maximumAge: 5000,
+            timeout: 15000
+        }
+    );
+} else {
+    console.error("Geolocation is not supported.");
+}
+
 
 document.getElementById("getLocationBtn").addEventListener("click", () => {
   if (!navigator.geolocation) return alert("❌ Geolocation not supported");

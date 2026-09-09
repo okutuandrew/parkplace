@@ -129,7 +129,7 @@ func main() {
 	http.HandleFunc("/PARKINGUPDATES", checkCookie(ParkingUpdates))
 	http.HandleFunc("/DRIVERLOGGIN",DriverLoggin)
 	http.HandleFunc("/WORKERLOGGIN",WorkerLoggin)
-   http.HandleFunc("/ws", checkCookie(WbSocks.DriverMapWbScock))
+   http.HandleFunc("/wss", checkCookie(WbSocks.DriverMapWbScock))
    http.Handle("/MpesaPayment",Middlewares.SessionTracker(http.HandlerFunc(   checkCookie(MpesaPaymentHandler ) )))
     http.HandleFunc("/logout/", logoutHandler)
 
