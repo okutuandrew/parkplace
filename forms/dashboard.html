@@ -201,9 +201,11 @@
     <script>
         // Wait for the full HTML page to load first
         document.addEventListener("DOMContentLoaded", function() {
-            const socket = new WebSocket("wss://" + window.location.host + "/ws");
+            // Automatically selects 'wss://' for production (HTTPS) and 'ws://' for development (HTTP)
+const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
 
-            socket.onmessage = function(event) {
+const socket = new WebSocket(protocol + window.location.host + "/ws");
+ socket.onmessage = function(event) {
                 if (event.data === "Welcome to Park Place 🚗") {
                     console.log("Server Greeting:", event.data);
                     return;
