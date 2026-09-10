@@ -1,58 +1,162 @@
 [
   {
-    "lat": -0.06575,
-    "lng": 34.77502,
-    "title": "Entrance A",
-    "color": "#d32f2f",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate",
-    "spaces": 0
-  },
-  {
-    "lat": -0.0795140945388736,
-    "lng": 34.76577553532044,
+    "lat": -0.08451697147490465,
+    "lng": 34.75200305565775,
     "title": "TESTBOT",
     "color": "#be1a0bff",
-    "content": "🚗 Available: 3 spots\n🅿️ Near main gate",
-    "spaces": 3
+    "content": "🚗 Available: 4 spots\n🅿️ Near main gate",
+    "spaces": 4
   },
   {
-    "lat": -0.08293250376456884,
-    "lng": 34.750967122056664,
+    "lat": -0.06940617838720296,
+    "lng": 34.75740311799385,
+    "title": "TESTBOT",
+    "color": "#be1a0bff",
+    "content": "🚗 Available: 4 spots\n🅿️ Near main gate",
+    "spaces": 4
+  },
+  {
+    "lat": -0.06666502342615784,
+    "lng": 34.7689897980388,
+    "title": "TESTBOT",
+    "color": "#e7b317ff",
+    "content": "🚗 Available: 4 spots\n🅿️ Near main gate",
+    "spaces": 4
+  },
+  {
+    "lat": -0.07723115790375282,
+    "lng": 34.7656481317038,
+    "title": "TESTBOT",
+    "color": "#e7b317ff",
+    "content": "🚗 Available: 1 spots\n🅿️ Near main gate",
+    "spaces": 1
+  },
+  {
+    "lat": -0.0680757192776121,
+    "lng": 34.76755086755001,
     "title": "TESTBOT",
     "color": "#e7b317ff",
     "content": "🚗 Available: 2 spots\n🅿️ Near main gate",
     "spaces": 2
   },
   {
-    "lat": -0.07010631308184581,
-    "lng": 34.77470103264452,
+    "lat": -0.08034556856744034,
+    "lng": 34.76485284622364,
     "title": "TESTBOT",
-    "color": "#be1a0bff",
-    "content": "🚗 Available: 5 spots\n🅿️ Near main gate",
-    "spaces": 5
-  },
-  {
-    "lat": -0.06931960451448986,
-    "lng": 34.77438986855094,
-    "title": "TESTBOT",
-    "color": "#be1a0bff",
+    "color": "#e7b317ff",
     "content": "🚗 Available: 4 spots\n🅿️ Near main gate",
     "spaces": 4
   },
   {
-    "lat": -0.07704549623631857,
-    "lng": 34.76260452801057,
+    "lat": -0.07380638000041419,
+    "lng": 34.75278847164442,
+    "title": "TESTBOT",
+    "color": "#116327ff",
+    "content": "🚗 Available: 1 spots\n🅿️ Near main gate",
+    "spaces": 1
+  },
+  {
+    "lat": -0.0762150415194746,
+    "lng": 34.75883333715099,
+    "title": "TESTBOT",
+    "color": "#116327ff",
+    "content": "🚗 Available: 4 spots\n🅿️ Near main gate",
+    "spaces": 4
+  },
+  {
+    "lat": -0.07259548221791069,
+    "lng": 34.76543928984784,
     "title": "TESTBOT",
     "color": "#e7b317ff",
     "content": "🚗 Available: 6 spots\n🅿️ Near main gate",
     "spaces": 6
   },
   {
-    "lat": -0.07946355429607649,
-    "lng": 34.766072630052655,
+    "lat": -0.08003133507290973,
+    "lng": 34.774565101162686,
+    "title": "TESTBOT",
+    "color": "#be1a0bff",
+    "content": "🚗 Available: 4 spots\n🅿️ Near main gate",
+    "spaces": 4
+  },
+  {
+    "lat": -0.0741094015401494,
+    "lng": 34.750289358308265,
+    "title": "TESTBOT",
+    "color": "#e7b317ff",
+    "content": "🚗 Available: 6 spots\n🅿️ Near main gate",
+    "spaces": 6
+  },
+  {
+    "lat": -0.08554669183101489,
+    "lng": 34.75373884876383,
+    "title": "TESTBOT",
+    "color": "#116327ff",
+    "content": "🚗 Available: 2 spots\n🅿️ Near main gate",
+    "spaces": 2
+  },
+  {
+    "lat": -0.07122453010062776,
+    "lng": 34.759459151702686,
     "title": "TESTBOT",
     "color": "#e7b317ff",
     "content": "🚗 Available: 4 spots\n🅿️ Near main gate",
     "spaces": 4
+  },
+  {
+    "lat": -0.07264529257180699,
+    "lng": 34.77024679163773,
+    "title": "TESTBOT",
+    "color": "#be1a0bff",
+    "content": "🚗 Available: 2 spots\n🅿️ Near main gate",
+    "spaces": 2
+  },
+  {
+    "lat": -0.0728980952238337,
+    "lng": 34.75338817907861,
+    "title": "TESTBOT",
+    "color": "#be1a0bff",
+    "content": "🚗 Available: 2 spots\n🅿️ Near main gate",
+    "spaces": 2
+  },
+  {
+    "lat": -0.08431472448905108,
+    "lng": 34.76606539707479,
+    "title": "TESTBOT",
+    "color": "#116327ff",
+    "content": "🚗 Available: 3 spots\n🅿️ Near main gate",
+    "spaces": 3
+  },
+  {
+    "lat": -0.08049732667438357,
+    "lng": 34.77428111736836,
+    "title": "TESTBOT",
+    "color": "#116327ff",
+    "content": "🚗 Available: 6 spots\n🅿️ Near main gate",
+    "spaces": 6
+  },
+  {
+    "lat": -0.0853840359967394,
+    "lng": 34.77396342735937,
+    "title": "TESTBOT",
+    "color": "#116327ff",
+    "content": "🚗 Available: 5 spots\n🅿️ Near main gate",
+    "spaces": 5
+  },
+  {
+    "lat": -0.08183734781374778,
+    "lng": 34.76898686534983,
+    "title": "TESTBOT",
+    "color": "#116327ff",
+    "content": "🚗 Available: 5 spots\n🅿️ Near main gate",
+    "spaces": 5
+  },
+  {
+    "lat": -0.08346161626192683,
+    "lng": 34.75476741757278,
+    "title": "TESTBOT",
+    "color": "#116327ff",
+    "content": "🚗 Available: 1 spots\n🅿️ Near main gate",
+    "spaces": 1
   }
 ]

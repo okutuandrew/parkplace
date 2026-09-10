@@ -20,6 +20,30 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <style>
+
+  #plateSuggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    z-index: 99999;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#plateSuggestions div {
+    padding: 10px;
+    cursor: pointer;
+    background: white;
+}
+
+#plateSuggestions div:hover {
+    background: #eee;
+}
+
+
 html, body { height: 100%; margin:0; padding:0; }
 #map {
   width: 95vw;
@@ -128,15 +152,17 @@ html, body { height: 100%; margin:0; padding:0; }
  <h1>PLATES MATCHING</h1>
 
   <div class="flex gap-2 mt-2">
-    🚗<input  list="numberplates"   type="text" id="maskednumberplate"  name="spaces" class="form-control flex-1" placeholder="REG NUMBER" required  autocomplete="off"   autocapitalize="on">
+     <div style="position: relative;">
+   🚗 <input class="form-control flex-1" type="text" id="maskednumberplate" placeholder="Enter registration number" autocomplete="off">
+
+    <div id="plateSuggestions"></div>
+</div>
+
+<div id="plateSuggestions"></div>
   </div>
   <div class="flex gap-2 mt-2">
     🧭 <input  type="text"   id="currentlong" readonly  name="longittude" class="form-control flex-1" placeholder="CURRENT LONG" required >
   </div>
-
-  <datalist id="numberplates">
-  {{.PlateOptions}}
-</datalist>
 
   <div class="flex gap-2 mt-2">
     🧭 <input  type="text" id="currentlatt"  readonly  name="lattitude" class="form-control flex-1" placeholder="CURRENT" required >
@@ -426,6 +452,7 @@ document.getElementById('toggleNewForm').addEventListener('click', function() {
 
 </script>
 
-
+<script src="/static/js/mapwebsock.js"></script>
+</body>
 </body>
 </html>

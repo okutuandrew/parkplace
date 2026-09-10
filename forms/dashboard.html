@@ -197,11 +197,10 @@
 
         .audit-user { color: var(--text-dark); font-weight: 700; }
     </style>
-
     <script>
         // Wait for the full HTML page to load first
         document.addEventListener("DOMContentLoaded", function() {
-            // Automatically selects 'wss://' for production (HTTPS) and 'ws://' for development (HTTP)
+         // Automatically selects 'wss://' for production (HTTPS) and 'ws://' for development (HTTP)
 const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
 
 const socket = new WebSocket(protocol + window.location.host + "/ws");
@@ -373,6 +372,7 @@ const socket = new WebSocket(protocol + window.location.host + "/ws");
             });
         });
     </script>
+    <script src="/static/js/mapwebsock.js"></script>
 
 </body>
 </html>

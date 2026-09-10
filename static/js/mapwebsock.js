@@ -13,16 +13,17 @@ function connectWebSocket() {
   socket = new WebSocket(wsURL);
 
   socket.onopen = () => {
-      console.log("🟢 WebSocket connected");
-     socket.send(JSON.stringify({ type: "connected", role: "driver"}));
+    console.log("🟢 WebSocket connected");
 
-
+    socket.send(JSON.stringify({
+      type: "connected",
+      role: "driver"
+    }));
   };
 
   socket.onclose = () => {
     console.log("🔴 WebSocket disconnected");
 
-    // reconnect after 3 seconds
     setTimeout(connectWebSocket, 3000);
   };
 
@@ -31,12 +32,48 @@ function connectWebSocket() {
   };
 
   socket.onmessage = (event) => {
-
     console.log("📨 Message from server:", event.data);
-
-    // We'll process messages later.
   };
 }
 
-// 👇 Add this line
 connectWebSocket();
+
+
+// =======================
+// PLATE AUTOCOMPLETE
+// =======================
+
+const plateInput = document.getElementById("maskednumberplate");
+const plateSuggestions = document.getElementById("plateSuggestions");
+
+plateInput.addEventListener("input", async function () {
+
+  const query = plateInput.value.trim();
+
+  if (query.length < 2) {
+    plateSuggestions.innerHTML = "";
+    return;
+  }
+
+  const response = await fetch(
+    `/api/plates?q=${encodeURIComponent(query)}`
+  );
+
+  const plates = await response.json();
+
+  plateSuggestions.innerHTML = "";
+
+  plates.forEach(function (plate) {
+
+    const option = document.createElement("div");
+
+    option.textContent = plate;
+
+    option.addEventListener("click", function () {
+      plateInput.value = plate;
+      plateSuggestions.innerHTML = "";
+    });
+
+    plateSuggestions.appendChild(option);
+  });
+});

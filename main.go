@@ -131,6 +131,11 @@ func main() {
 	http.HandleFunc("/WORKERLOGGIN",WorkerLoggin)
    http.HandleFunc("/ws", checkCookie(WbSocks.DriverMapWbScock))
    http.HandleFunc("/wss", checkCookie(WbSocks.DriverMapWbScock))
+
+   http.HandleFunc("/ws/plates", checkCookie(static.HandlePlateUpdatesWS))
+     http.HandleFunc("/wss/plates", checkCookie(static.HandlePlateUpdatesWS))
+     http.HandleFunc("/api/plates", checkCookie(static.SearchPlates))
+
    http.Handle("/MpesaPayment",Middlewares.SessionTracker(http.HandlerFunc(   checkCookie(MpesaPaymentHandler ) )))
     http.HandleFunc("/logout/", logoutHandler)
 
