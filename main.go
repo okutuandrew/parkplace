@@ -180,7 +180,7 @@ func LandingPage(w http.ResponseWriter, r *http.Request) {
     }
 
     // 2. Fix your log to accurately match the action
-    log.Println("✅ User accessed the main Landing Login Page Portal")
+    log.Println("User accessed the main Landing Login Page Portal")
 
     // 3. CRUCIAL: Execute the template to send the HTML down to the browser window
     err = tmpl.Execute(w, nil) // passing nil since this form doesn't need dynamic Go struct data
@@ -275,8 +275,6 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
 	}
 } 
-
-
 func FrontMapHandler(w http.ResponseWriter, r *http.Request) {
 
     data := PageData{Street: "KIMATHI STREET"}
@@ -287,7 +285,7 @@ func FrontMapHandler(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    log.Println("✅ User accessed F-MAP page")
+    log.Println("User accessed F-MAP page")
     err = tmpl.Execute(w, data)
     if err != nil {
         http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
@@ -320,7 +318,7 @@ PostSpace := workerupdates.Updates{}
 
 
 
-	log.Println("✅ Worker Posted updates",PostSpace )
+	log.Println(" Worker Posted updates",PostSpace )
 
 	  data := PageData{Street: "KIMATHI STREET"}
 
@@ -339,7 +337,7 @@ PostSpace := workerupdates.Updates{}
 
 func DriverLoggin(w http.ResponseWriter, r *http.Request) {
 
-	log.Println("✅ DRIVER  OPENED APP ")
+	log.Println("DRIVER  OPENED APP ")
 
  
 
@@ -349,7 +347,7 @@ func DriverLoggin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = tmpl.Execute(w, nil) // 👈 no data passed
+	err = tmpl.Execute(w, nil) //
 	if err != nil {
 		http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
 	}
@@ -359,7 +357,7 @@ func DriverLoggin(w http.ResponseWriter, r *http.Request) {
 
 func WorkerLoggin(w http.ResponseWriter, r *http.Request) {
 
-	log.Println("✅ Worker   OPENED APP ")
+	log.Println(" Worker   OPENED APP ")
 
 	tmpl, err := template.ParseFiles("forms/workerloggin.html")
 	if err != nil {
@@ -367,7 +365,7 @@ func WorkerLoggin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = tmpl.Execute(w, nil) // 👈 no data passed
+	err = tmpl.Execute(w, nil) //  no data passed
 	if err != nil {
 		http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
 	}
