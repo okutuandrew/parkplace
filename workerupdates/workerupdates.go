@@ -5,36 +5,36 @@ import (
 	"encoding/json"
 	"os"
 	"sync"
+
 )
 
 type Updates struct {
-    Lat     float64 `json:"lat"`
-    Long    float64 `json:"lng"`
-    Title   string  `json:"title"`
-    Color   string  `json:"color"`
-    Content string  `json:"content"`
-	Spaces  int     `json:"spaces"`
-} 
+	Lat       float64 `json:"lat"`
+	Long      float64 `json:"lng"`
+	Title     string  `json:"title"`
+	Color     string  `json:"color"`
+	Content   string  `json:"content"`
+	Spaces    int     `json:"spaces"`
+	Location  string  `json:"location"`   
+	Attendant string  `json:"attendant"`
+	Timestamp string  `json:"timestamp"`
+}
 
-func Workerdata()  string {
-
-	var  workerupdates Updates
-	workerupdates.Lat =  -0.06575
-	workerupdates.Long = 34.77502
-	workerupdates.Title =  "Entrance A"
-	workerupdates.Color = "#d32f2f"
-	workerupdates.Content = "🚗 Available: 5 spots\n🅿️ Near main gate"
-	workerupdates.Spaces = 0
-
+func Workerdata(workerupdates Updates) string {
+	// The hardcoded values are gone! It uses whatever was passed into it.
+	
+	if workerupdates.Location == "" {
+		workerupdates.Location = "Entrance A" // Optional: default Location if form is empty
+	}
 
 	WorkerupdatesPointer := &workerupdates
 
-	jsonData, _ := json.Marshal( workerupdates  )
+	jsonData, _ := json.Marshal(workerupdates)
 
-	ScribeUpdates(  string(jsonData),  WorkerupdatesPointer  )
-    return  string(jsonData)
+	ScribeUpdates(string(jsonData), WorkerupdatesPointer)
+	
+	return string(jsonData)
 }
-
 
 
 var mu sync.Mutex 

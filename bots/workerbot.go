@@ -8,6 +8,7 @@ import (
 "parkplace/workerupdates" 
 "math/rand"
 "strconv"
+"time"
 
 )
 
@@ -43,12 +44,14 @@ randomSpaceIndex := rand.Intn(len( spacesOptions))
 
 DummyParking.Lat = randomRange(latMin, latMax)
 DummyParking.Long = randomRange(lngMin, lngMax)
-DummyParking.Title = "TESTBOT";
+DummyParking.Location = "TESTBOT";
+DummyParking.Attendant = "PHINEAS"
 DummyParking.Color = colorOptions[randomIndex] 
 SpacesStr:= strconv.Itoa( spacesOptions[randomSpaceIndex]  )
 
 DummyParking.Content = "🚗 Available: " + SpacesStr + " spots\n🅿️ Near main gate"
 DummyParking.Spaces = spacesOptions[randomSpaceIndex]; 
+DummyParking.Timestamp = time.Now().Format("2006-01-02 15:04:05") 
 
 WorkerupdatesPointerBot := &DummyParking
 
@@ -114,7 +117,7 @@ func DeleteRandomEntry() {
 	}
 
 	fmt.Printf("🗑️ Randomly deleted entry -> Title: %s | Remaining spots left: %d\n", 
-		deletedEntry.Title, len(entries))
+		deletedEntry.Location, len(entries))
 }
 
 func ResetParkingData() {

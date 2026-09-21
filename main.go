@@ -60,6 +60,7 @@ type AttendantEntry struct {
 }
 
 
+
 func main() {
 
 	err := godotenv.Load()
@@ -82,7 +83,7 @@ func main() {
 	// ==========================================
 	go func() {
 		for {
-			bots.DeleteRandomEntry()
+			//bots.DeleteRandomEntry()
 			time.Sleep(9 * time.Second)
 		}
 	}()
@@ -92,7 +93,7 @@ func main() {
 	// ==========================================
 	go func() {
 		for {
-			bots.ResetParkingData()
+			//bots.ResetParkingData()
 			time.Sleep(180 * time.Second)
 		}
 	}()
@@ -107,7 +108,7 @@ func main() {
 
 	logs.SysLogs()
 
-	log.Println(workerupdates.Workerdata())
+	log.Println(workerupdates.Workerdata(workerupdates.Updates{}) )
 
 	// ==========================================
 	// ROUTES
@@ -324,7 +325,10 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
 	// HANDLE DASHBOARD LOGIN
 	// ==================================================
 
+
+	   
 	if r.Method == "POST" {
+		data.Username = r.FormValue("username")
 
 		username := r.FormValue("username")
 		password := r.FormValue("password")
@@ -333,6 +337,14 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
 
 		// Password is captured but not being checked yet
 		_ = password
+
+		http.SetCookie(w, &http.Cookie{
+		Name:     "dashboard_user",    // Unique name for this session tracking
+		Value:    username,            // The actual username string
+		Path:     "/",                 // Accessible across all routes
+		HttpOnly: true,                 // Security layer preventing JS tampering
+		Expires:  time.Now().Add(24 * time.Hour), // Keeps them logged in for 24 hours
+	})
 
 		// ==================================================
 		// CREATE ATTENDANT RECORD
@@ -508,71 +520,58 @@ func Bookparking(w http.ResponseWriter, r *http.Request) {
 // PARKING UPDATES
 // ======================================================
 
+
 func ParkingUpdates(w http.ResponseWriter, r *http.Request) {
 
 	PostSpace := workerupdates.Updates{}
 
-	PostSpace.Lat, _ = strconv.ParseFloat(
-		r.FormValue("lattitude"),
-		64,
-	)
-
-	PostSpace.Long, _ = strconv.ParseFloat(
-		r.FormValue("longitude"),
-		64,
-	)
-
+	// 1. Extract and populate all values from the form submission
+	PostSpace.Lat, _ = strconv.ParseFloat(r.FormValue("lattitude"), 64)
+	PostSpace.Long, _ = strconv.ParseFloat(r.FormValue("longitude"), 64)
 	PostSpace.Color = r.FormValue("color")
+	rawSpaces := r.FormValue("spaces")
+	PostSpace.Content = "🚗 Available:" + rawSpaces + "spots<br>📝" + r.FormValue("notes")
+	PostSpace.Spaces, _ = strconv.Atoi(r.FormValue("spaces"))
+	PostSpace.Timestamp = time.Now().Format("2006-01-02 15:04:05")
+	
+	// Dynamic location from form with a fallback default
+	PostSpace.Location = r.FormValue("location")
+	if PostSpace.Location == "" {
+		PostSpace.Location = "Entrance A" 
+	}
+	// 2. Extract the attendant username from the session cookie
+	cookie, err := r.Cookie("dashboard_user")
+	if err == nil {
+		PostSpace.Attendant = cookie.Value 
+	} else {
+		PostSpace.Attendant = "Unknown Attendant" 
+	}
 
-	PostSpace.Content = r.FormValue("notes")
+	PostSpace.Title =r.FormValue("location") 
 
-	PostSpace.Spaces, _ = strconv.Atoi(
-		r.FormValue("spaces"),
-	)
+	// 3. Pass the fully populated dynamic struct directly into Workerdata
+	jsonString := workerupdates.Workerdata(PostSpace)
 
-	WorkerupdatesPointer := &PostSpace
+	log.Println("Worker Posted updates via workerupdates package:", jsonString)
 
-	jsonData, _ := json.Marshal(
-		WorkerupdatesPointer,
-	)
-
-	workerupdates.ScribeUpdates(
-		string(jsonData),
-		WorkerupdatesPointer,
-	)
-
-	log.Println(
-		"Worker Posted updates",
-		PostSpace,
-	)
-
+	// ... your template code below remains exactly the same ...
 	data := PageData{
 		Street: "KIMATHI STREET",
 	}
 
-	tmpl, err := template.ParseFiles(
-		"maps/workermap.html",
-	)
-
+	tmpl, err := template.ParseFiles("maps/workermap.html")
 	if err != nil {
-		http.Error(
-			w,
-			"Template error: "+err.Error(),
-			http.StatusInternalServerError,
-		)
+		http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	err = tmpl.Execute(w, data)
-
 	if err != nil {
-		http.Error(
-			w,
-			"Execute error: "+err.Error(),
-			http.StatusInternalServerError,
-		)
+		http.Error(w, "Execute error: "+err.Error(), http.StatusInternalServerError)
 	}
 }
+
+
 
 // ======================================================
 // DRIVER LOGIN
